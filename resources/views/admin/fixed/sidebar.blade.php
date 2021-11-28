@@ -25,49 +25,49 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{url('/crisis')}}">Crisis</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Report</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('manage.employee')}}">Manage Employee</a></li>
+          {{-- <li class="nav-item"> <a class="nav-link" href=""></a></li> --}}
           </ul>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="icon-head menu-icon"></i>
-          <span class="menu-title">Donor</span>
+          <span class="menu-title">Product</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Donor Profile</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Donation</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('manage.product')}}">Manage Product</a></li>
+            {{-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Create New Product</a></li> --}}
           </ul>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="icon-head menu-icon"></i>
-          <span class="menu-title">Volunteer</span>
+          <span class="menu-title">Order</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Volunteer Profile</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Distribution</a></li>
+            <li class="nav-item"> <a class="nav-link" href="">Manage Order</a></li>
+            {{-- <li class="nav-item"> <a class="nav-link" href="">Request Order</a></li> --}}
           </ul>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="pages/forms/basic_elements.html">
           <i class="icon-file menu-icon"></i>
-          <span class="menu-title">Form elements</span>
+          <span class="menu-title">Transfer History</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="pages/charts/chartjs.html">
           <i class="icon-pie-graph menu-icon"></i>
-          <span class="menu-title">Charts</span>
+          <span class="menu-title">Feedback</span>
         </a>
-      </li>
+      {{-- </li>
       <li class="nav-item">
         <a class="nav-link" href="pages/tables/basic-table.html">
           <i class="icon-command menu-icon"></i>
@@ -79,7 +79,7 @@
           <i class="icon-help menu-icon"></i>
           <span class="menu-title">Icons</span>
         </a>
-      </li>
+      </li> --}}
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
           <i class="icon-head menu-icon"></i>
@@ -96,11 +96,11 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" href="docs/documentation.html">
           <i class="icon-book menu-icon"></i>
           <span class="menu-title">Documentation</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </nav
