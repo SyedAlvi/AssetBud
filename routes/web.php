@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmployeeController;
 
@@ -37,3 +38,8 @@ Route::get('/create/product', [ProductController::class, 'CreateProduct'])->name
 // for ProductList
 Route::get('/product/list',[ProductController:: class,'ProductList'])->name('product.list');
 Route::post('/product/store', [ProductController:: class, 'ProductStore'])->name('product.store');
+//for OrderController
+Route::get('/create/order', [OrderController::class, 'CreateOrder'])->name('create.order');
+//for OrderList
+Route::get('/order/list',[OrderController:: class,'OrderList'])->name('order.list');
+Route::post('/order/store', [OrderController:: class, 'OrderStore'])->name('order.store');

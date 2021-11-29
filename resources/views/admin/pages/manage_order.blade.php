@@ -9,7 +9,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Request for order</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="{{route('')}}" class="btn btn-success">Click here for request for order</a>
+                  <a href="{{route('create.order')}}" class="btn btn-success">Click here for request for product </a>
                 </div>
               </div>
             </div>
@@ -18,9 +18,10 @@
                 <div class="card-body">
                   <h5 class="card-title">View Order</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="{{route('')}}" class="btn btn-success">Click here for view order</a>
+                  <a href="{{route('order.list')}}" class="btn btn-success">Click here for view order</a>
                 </div>
               </div>
+              
             </div>
           </div>
     </div>
