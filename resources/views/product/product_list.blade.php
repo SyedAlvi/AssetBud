@@ -7,6 +7,7 @@
       <th> ID</th>
       <th> Name</th>
       <th> Category</th>
+      <th> Quantity</th>
       <th> Details</th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <th>{{$item->id}}</th>
       <th>{{$item->name}}</th>
       <th>{{$item->category}}</th>
+      <th>{{$item->quantity}}</th>
       <th>{{$item->details}}</th>
     </tr>
     @endforeach
