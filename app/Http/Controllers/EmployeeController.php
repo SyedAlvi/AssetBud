@@ -22,7 +22,6 @@ class EmployeeController extends Controller
     {
         // dd($request->all());
         $request->validate([
-            'id'=>'required',
             'name'=>'required',
             'email'=>'required',
             'password'=> 'required',

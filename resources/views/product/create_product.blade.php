@@ -26,9 +26,9 @@
 </div>
 @endif
 
-    <form action="{{route('product.store')}}" method="POST">
+    <form action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
       @csrf
-      <div class="form-group">
+      <div class= "form-group">
         <label for="exampleFormControlInput1">Product Code</label>
         <input type="number" name="id" class="form-control" id="exampleFormControlInput1" placeholder="Product Code">
       </div>
@@ -55,6 +55,10 @@
           <label for="exampleFormControlTextarea1">Product Details</label>
           <textarea name="details" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Product Image</label>
+          <input name="product_image" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
         <button type="submit" class="btn btn-primary">Create New Product</button>
       </form>
     </html>

@@ -7,9 +7,9 @@
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Request for order</h5>
+                  <h5 class="card-title">Additional order</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="{{route('create.order')}}" class="btn btn-success">Click here for request for product </a>
+                  <a href="{{route('order.list')}}" class="btn btn-success">Click here for view additional order </a>
                 </div>
               </div>
             </div>
@@ -18,7 +18,7 @@
                 <div class="card-body">
                   <h5 class="card-title">View Order</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="{{route('order.list')}}" class="btn btn-success">Click here for view order</a>
+                  <a href="" class="btn btn-success">Click here for view order</a>
                 </div>
               </div>
               

@@ -52,7 +52,7 @@
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{route('manage.order')}}">Manage Order</a></li>
-            {{-- <li class="nav-item"> <a class="nav-link" href="">Request Order</a></li> --}}
+            <li class="nav-item"> <a class="nav-link" href="{{route('create.order')}}">Request Order</a></li>
           </ul>
         </div>
       </li>

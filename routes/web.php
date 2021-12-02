@@ -38,6 +38,7 @@ Route::get('/create/product', [ProductController::class, 'CreateProduct'])->name
 // for ProductList
 Route::get('/product/list',[ProductController:: class,'ProductList'])->name('product.list');
 Route::post('/product/store', [ProductController:: class, 'ProductStore'])->name('product.store');
+
 //for OrderController
 Route::get('/create/order', [OrderController::class, 'CreateOrder'])->name('create.order');
 //for OrderList

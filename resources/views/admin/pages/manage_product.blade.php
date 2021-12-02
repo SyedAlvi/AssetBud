@@ -18,7 +18,7 @@
                 <div class="card-body">
                   <h5 class="card-title">View Product</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="{{route('product.list')}}" class="btn btn-success">Click here for view product</a>
+                  <a href="{{route('product.list')}}" class="btn btn-success">Click here for view stock product</a>
                 </div>
               </div>
             </div>
