@@ -21,6 +21,17 @@ class EmployeeController extends Controller
     public function EmployeeStore(Request $request)
     {
         // dd($request->all());
+        $request->validate([
+            'id'=>'required',
+            'name'=>'required',
+            'email'=>'required',
+            'password'=> 'required',
+            'address'=>'required',
+            'category'=>'required',
+            'city'=> 'required',
+            'mnumber'=>'required',
+           
+        ]);
         Employee::create([
             'id'=>$request->id,
             'name'=> $request->name,
@@ -31,6 +42,6 @@ class EmployeeController extends Controller
             'city'=> $request->city,
             'mnumber'=> $request->mnumber,
         ]);
-        return redirect()->back();
-    }
+        return redirect()->back()->with('success', 'Employee Created Successfully');
+}
 }

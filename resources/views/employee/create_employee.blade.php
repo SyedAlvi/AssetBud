@@ -3,6 +3,23 @@
     <div>
         <h1>Fill up this form for create new employee</h1>
         <hr>
+        @if(session()->has('success'))
+        <p class="alert alert-success">
+          {{session()->get('success')}}
+        </p>
+    @endif
+    
+    @if ($errors->any())
+    <div class="alert alert-warning" role="alert">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>
+            {{$error}}
+          </li>   
+        @endforeach
+      </ul>
+    </div>
+    @endif
         <form action="{{route('employee.store')}}" method="POST">
           @csrf
     

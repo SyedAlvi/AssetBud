@@ -21,12 +21,18 @@ class OrderController extends Controller
     public function OrderStore(Request $request)
     {
         //dd($request->all());
+        $request->validate([
+            'id'=>'required',
+            'name'=>'required',
+            'category'=>'required',
+            'details'=> 'required',
+        ]);
         Order::create([
             'id'=>$request->id,
             'name'=> $request->name,
             'category'=> $request->category,
             'details'=> $request->details,
         ]);
-        return redirect()->back();
-    }
+        return redirect()->back()->with('success', 'Order Created Successfully');
+}
 }

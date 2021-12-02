@@ -8,6 +8,23 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
+    @if(session()->has('success'))
+    <p class="alert alert-success">
+      {{session()->get('success')}}
+    </p>
+@endif
+
+@if ($errors->any())
+<div class="alert alert-warning" role="alert">
+  <ul>
+    @foreach ($errors->all() as $error)
+      <li>
+        {{$error}}
+      </li>   
+    @endforeach
+  </ul>
+</div>
+@endif
     <form action="{{route('order.store')}}" method="POST">
       @csrf
       <div class="form-group">
