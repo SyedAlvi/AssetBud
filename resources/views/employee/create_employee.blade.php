@@ -1,5 +1,7 @@
 @extends('master')
 @section('content')
+
+
     <div>
         <h1>Fill up this form for create new employee</h1>
         <hr>
@@ -20,7 +22,7 @@
       </ul>
     </div>
     @endif
-        <form action="{{route('employee.store')}}" method="POST">
+        <form action="{{route('employee.store')}}" method="POST" enctype="multipart/form-data" >
           @csrf
     
                 <div class="row">
@@ -92,10 +94,15 @@
                 </small>
               </div>    
             </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">employee Image</label>
+              <input name="employee_image" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
             <div class="form-group">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="gridCheck" required>
                 <label class="form-check-label" for="gridCheck">
+                  
                   Check me out
                 </label>
               </div>

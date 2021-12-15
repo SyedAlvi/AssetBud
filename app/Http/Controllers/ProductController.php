@@ -20,10 +20,11 @@ class ProductController extends Controller
   
     public function ProductStore(Request $request)
     {
+        // dd($request->all());
         //for image upload
         $image_name=null;
         //step 1: check image exist in this request.
-        if($request->hasFile('donor_image'))
+        if($request->hasFile('product_image'))
          // step 2: generate file name
         {
             $image_name=date('Ymdhis').'.'. $request->file('product_image')->getClientOriginalExtension();
@@ -45,6 +46,7 @@ class ProductController extends Controller
             'category'=> $request->category,
             'quantity'=> $request->quantity,
             'details'=> $request->details,
+            'image'=>$image_name
            
         ]);
         return redirect()->back()->with('success', 'Asset Created Successfully');

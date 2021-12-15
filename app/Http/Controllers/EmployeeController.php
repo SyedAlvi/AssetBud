@@ -20,8 +20,10 @@ class EmployeeController extends Controller
   
     public function EmployeeStore(Request $request)
     {
+
+      
         // dd($request->all());
-        $request->validate([
+        $request->validate([ 
             'name'=>'required',
             'email'=>'required',
             'password'=> 'required',
@@ -31,6 +33,19 @@ class EmployeeController extends Controller
             'mnumber'=>'required',
            
         ]);
+
+         
+        $image_name='';
+        //step 1: check image exist in this request.
+        if($request->hasFile('employee_image'))
+         // step 2: generate file name
+        {
+            $image_name=date('Ymdhis').'.'. $request->file('employee_image')->getClientOriginalExtension();
+        
+             //step 3 : store into project directory
+            $request->file('employee_image')->storeAs('/uploads/employees',$image_name);
+        }
+        
         Employee::create([
             'id'=>$request->id,
             'name'=> $request->name,
@@ -40,6 +55,7 @@ class EmployeeController extends Controller
             'category'=> $request->category,
             'city'=> $request->city,
             'mnumber'=> $request->mnumber,
+            'employee_image'=>$image_name,
         ]);
         return redirect()->back()->with('success', 'Employee Created Successfully');
 }

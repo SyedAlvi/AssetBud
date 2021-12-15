@@ -22,6 +22,7 @@ class CreateEmployeesTable extends Migration
             $table->string('category');
             $table->string('city');
             $table->double('mnumber'); 
+            
             $table->timestamps();
         });
     }

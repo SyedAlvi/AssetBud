@@ -12,6 +12,7 @@
       <th> Designation</th>
       <th> City</th>
       <th> Mobile</th>
+      <th> Employee_image</th>
     </tr>
   </thead>
   <tbody>
@@ -22,9 +23,10 @@
       <th>{{$item->email}}</th>
       <th>{{$item->password}}</th>
       <th>{{$item->address}}</th>
-      <th>{{$item->category}}</th>
+      <th>{{$item->category}}</th> 
       <th>{{$item->city}}</th>
       <th>{{$item->mnumber}}</th>
+      <td><img src="{{url('/uploads/employees/'.$item->employee_image)}}" style="border-radius: 4px;" width= "500px;" alt="emploee image"> </td>
     </tr>
     @endforeach
   </tbody>
