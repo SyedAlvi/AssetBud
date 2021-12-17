@@ -31,7 +31,7 @@ Route::get('/manage/order', [AdminController::class, 'ManageOrder'])->name('mana
 Route::get('/create/employee', [EmployeeController::class, 'CreateEmployee'])->name('create.employee');
 Route::get('employee/delete/{employee_id}', [EmployeeController::class, 'deleteemployee'])->name('delete.employee');
 Route::get('employee/view/{employee_id}', [EmployeeController::class, 'viewemployee'])->name('view.employee');
-//Route::get('employee/delete/{employee_id}', [EmployeeController::class, 'deleteemployee'])->name('delete.employee');
+//Route::get('employee/update/{employee_id}', [EmployeeController::class, 'updateemployee'])->name('updateete.employee');
 
 
 //for EmployeeList
@@ -39,6 +39,9 @@ Route::get('/employee/list',[EmployeeController:: class,'EmployeeList'])->name('
 Route::post('/employee/store', [EmployeeController:: class, 'EmployeeStore'])->name('employee.store');
 //for ProductController
 Route::get('/create/product', [ProductController::class, 'CreateProduct'])->name('create.product');
+Route::get('product/delete/{product_id}', [ProductController::class, 'deleteproduct'])->name('delete.product');
+Route::get('product/view/{product_id}', [ProductController::class, 'viewproduct'])->name('view.product');
+//Route::get('product/delete/{product_id}', [ProductController::class, 'updateproduct'])->name('update.product');
 // for ProductList
 Route::get('/product/list',[ProductController:: class,'ProductList'])->name('product.list');
 Route::post('/product/store', [ProductController:: class, 'ProductStore'])->name('product.store');

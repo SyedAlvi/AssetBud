@@ -68,6 +68,6 @@ class EmployeeController extends Controller
         public function deleteemployee($employee_id)
         {
             Employee::find($employee_id)->delete();
-            return redirect()->back()->with('sucecess', 'Eemployee has beeen Deleted Successfully');
+            return redirect()->back()->with('sucecess', 'Employee has beeen Deleted Successfully');
         }
 }

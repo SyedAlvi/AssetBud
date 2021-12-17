@@ -41,7 +41,7 @@ class ProductController extends Controller
             
         ]);
         Product::create([
-            'id'=>$request->id,
+            //'id'=>$request->id,
             'name'=> $request->name,
             'category'=> $request->category,
             'quantity'=> $request->quantity,
@@ -50,5 +50,16 @@ class ProductController extends Controller
            
         ]);
         return redirect()->back()->with('success', 'Asset Created Successfully');
+    }
+    public function viewproduct($product_id)
+    {
+        $product= product::find($product_id);
+        return view('product.product_view',compact('product'));
+
+    }
+    public function deleteproduct($product_id)
+    {
+        Product::find($product_id)->delete();
+        return redirect()->back()->with('sucecess', 'Product has beeen Deleted Successfully');
     }
 }
