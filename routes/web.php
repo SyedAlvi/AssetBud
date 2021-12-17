@@ -29,6 +29,10 @@ Route::get('/manage/order', [AdminController::class, 'ManageOrder'])->name('mana
 
 //for EmployeeController
 Route::get('/create/employee', [EmployeeController::class, 'CreateEmployee'])->name('create.employee');
+Route::get('employee/delete/{employee_id}', [EmployeeController::class, 'deleteemployee'])->name('delete.employee');
+Route::get('employee/view/{employee_id}', [EmployeeController::class, 'viewemployee'])->name('view.employee');
+//Route::get('employee/delete/{employee_id}', [EmployeeController::class, 'deleteemployee'])->name('delete.employee');
+
 
 //for EmployeeList
 Route::get('/employee/list',[EmployeeController:: class,'EmployeeList'])->name('employee.list');

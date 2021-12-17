@@ -47,7 +47,7 @@ class EmployeeController extends Controller
         }
         
         Employee::create([
-            'id'=>$request->id,
+            // 'id'=>$request->id,
             'name'=> $request->name,
             'email'=> $request->email,
             'password'=> $request->password,
@@ -59,4 +59,15 @@ class EmployeeController extends Controller
         ]);
         return redirect()->back()->with('success', 'Employee Created Successfully');
 }
+        public function viewemployee($employee_id)
+        {
+            $employee= employee::find($employee_id);
+            return view('employee.employee_view',compact('employee'));
+
+        }
+        public function deleteemployee($employee_id)
+        {
+            Employee::find($employee_id)->delete();
+            return redirect()->back()->with('sucecess', 'Eemployee has beeen Deleted Successfully');
+        }
 }
