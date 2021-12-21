@@ -8,7 +8,7 @@
         <th> ID</th>
         <th> Name</th>
         <th> email</th>
-        <th> Password</th>
+        {{-- <th> Password</th> --}}
         <th> Address</th>
         <th> Designation</th>
         <th> City</th>
@@ -23,7 +23,7 @@
         {{-- <th>{{$item->id}}</th> --}}
         <th>{{$item->name}}</th>
         <th>{{$item->email}}</th>
-        <th>{{$item->password}}</th>
+        {{-- <th>{{$item->password}}</th> --}}
         <th>{{$item->address}}</th>
         <th>{{$item->category}}</th> 
         <th>{{$item->city}}</th>

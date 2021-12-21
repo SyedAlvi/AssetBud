@@ -18,6 +18,12 @@ class ProductController extends Controller
         return view ('product.product_list', compact('productlist'));
     }
   
+    public function viewproduct()
+    {
+        $productlist = product::all();
+        return view('website.view_product',compact('productlist'));
+    }
+
     public function ProductStore(Request $request)
     {
         // dd($request->all());
@@ -51,15 +57,11 @@ class ProductController extends Controller
         ]);
         return redirect()->back()->with('success', 'Asset Created Successfully');
     }
-    public function viewproduct($product_id)
-    {
-        $product= product::find($product_id);
-        return view('product.product_view',compact('product'));
-
-    }
+   
     public function deleteproduct($product_id)
     {
         Product::find($product_id)->delete();
         return redirect()->back()->with('sucecess', 'Product has beeen Deleted Successfully');
     }
+   
 }

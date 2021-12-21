@@ -8,6 +8,7 @@
                   <p><b>Employee Name: {{$employee->name}}</b></p>
                   <p><b>Employee Email: {{$employee->email}}</b></p>
                   <p><b>Employee Address: {{$employee->address}}</b></p>
+                  <p><b>Employee Number: {{$employee->mnumber}}</b></p>
                 </div>
               </div>
     </div>

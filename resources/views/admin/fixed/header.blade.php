@@ -1,7 +1,7 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
       <a class="navbar-brand brand-logo" href="">Assets Bud</a>
-      <a class="navbar-brand brand-logo-mini" href=""><img src="" alt="logo"/></a>
+      <a class="navbar-brand brand-logo-mini" href=""></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
       <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -20,9 +20,9 @@
         </li>
       </ul>
       <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown d-lg-flex d-none">
+          {{-- <li class="nav-item dropdown d-lg-flex d-none">
               <button type="button" class="btn btn-info font-weight-bold">+ Create New</button>
-          </li>
+          </li> --}}
         <li class="nav-item dropdown d-flex">
           <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
             <i class="icon-air-play mx-0"></i>
