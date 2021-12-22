@@ -31,7 +31,7 @@
             <th>{{$item->details}}</th>
             <td><img src="{{url('/uploads/products/'.$item->image)}}" style="border-radius: 4px;" width= "100px;" alt="product image"> </td>
             <td>
-              <a href="{{route('view.product', $item->id)}}"class="btn btn-info">View</a>
+              <a href="{{route('product.view', $item->id)}}"class="btn btn-info">View</a>
               
               </td>
           </tr>

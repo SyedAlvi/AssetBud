@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,8 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
+Route::get('/admin/login',[AdminUserController::class,'login'])->name('admin.login');
+Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('admin.doLogin');
 
 Route::group(['prefix'=> 'user'], function(){
 
@@ -26,11 +29,12 @@ Route::group(['prefix'=> 'user'], function(){
 });
 Route:: get('/view/product',[ProductController::class,'viewproduct'])->name('product.view');
 
+
 Route::group(['prefix'=> 'admin'], function(){
 
     Route::get('/', function(){
         return view('master');
-    });
+    })->name('home');
 
 //for AdminController
 Route::get('/manage/employee', [AdminController::class, 'ManageEmployee'])->name('manage.employee');

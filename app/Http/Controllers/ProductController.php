@@ -23,7 +23,7 @@ class ProductController extends Controller
         $productlist = product::all();
         return view('website.view_product',compact('productlist'));
     }
-
+    
     public function ProductStore(Request $request)
     {
         // dd($request->all());
