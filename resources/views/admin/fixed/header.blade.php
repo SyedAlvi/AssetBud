@@ -77,7 +77,7 @@
                 <i class="icon-head"></i> Profile
             </a>
             <a class="dropdown-item preview-item">
-                <i class="icon-inbox"></i> Logout
+                <i class="icon-inbox"  href="{{route('admin.logout')}}"></i> Logout
             </a>
           </div>
         </li>

@@ -10,7 +10,7 @@ class AdminUserController extends Controller
 {
     public function login()
     {
-       return view('admin.login');
+       return view('website.login');
     }
 
 
@@ -31,10 +31,10 @@ class AdminUserController extends Controller
 
     }
 
-
-    // public function logout()
-    // {
-    //     Auth::logout();
-    //     return redirect()->route('admin.login')->with('message','Logging out.');
-    // }
+    
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('admin.login')->with('message','Logging out.');
+    }
 }

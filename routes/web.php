@@ -18,8 +18,6 @@ use App\Http\Controllers\AdminUserController;
 |
 */
 
-Route::get('/admin/login',[AdminUserController::class,'login'])->name('admin.login');
-Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('admin.doLogin');
 
 Route::group(['prefix'=> 'user'], function(){
 
@@ -30,11 +28,18 @@ Route::group(['prefix'=> 'user'], function(){
 Route:: get('/view/product',[ProductController::class,'viewproduct'])->name('product.view');
 
 
-Route::group(['prefix'=> 'admin'], function(){
+Route::get('/admin/login',[AdminUserController::class,'login'])->name('admin.login');
+Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('admin.doLogin');
+
+
+Route::group(['prefix'=> 'admin','middleware'=>'auth'], function(){
 
     Route::get('/', function(){
         return view('master');
     })->name('home');
+   
+
+    Route::get('/logout',[AdminUserController::class,'logout'])->name('admin.logout');
 
 //for AdminController
 Route::get('/manage/employee', [AdminController::class, 'ManageEmployee'])->name('manage.employee');
