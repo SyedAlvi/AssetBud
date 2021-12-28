@@ -19,17 +19,18 @@ use App\Http\Controllers\AdminUserController;
 */
 
 
-Route::group(['prefix'=> 'user'], function(){
+// Route::group(['prefix'=> 'user'], function(){
 
     Route::get('/', function(){
-        return view('website.login');
+        return view('website.master');
     })->name('website');
-});
-Route:: get('/view/product',[ProductController::class,'viewproduct'])->name('product.view');
+// });
+Route:: get('/view/product',[ProductController::class,'view_product'])->name('product.view');
+
 
 
 Route::get('/admin/login',[AdminUserController::class,'login'])->name('admin.login');
-Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('admin.doLogin');
+Route::post('/admin/login-view',[AdminUserController::class,'LoginView'])->name('admin.LoginView');
 
 
 Route::group(['prefix'=> 'admin','middleware'=>'auth'], function(){

@@ -14,7 +14,7 @@ class AdminUserController extends Controller
     }
 
 
-    public function doLogin(Request $request)
+    public function LoginView(Request $request)
     {
 
         $userInfo=$request->except('_token');

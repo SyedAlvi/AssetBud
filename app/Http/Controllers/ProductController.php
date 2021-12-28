@@ -18,11 +18,17 @@ class ProductController extends Controller
         return view ('product.product_list', compact('productlist'));
     }
   
-    public function viewproduct()
+    public function view_product()
     {
         $productlist = product::all();
         return view('website.view_product',compact('productlist'));
     }
+    public function viewproduct($product_id)
+    {
+        $productlist = product::find($product_id);
+        return view('product.product_view',compact('productlist'));
+    }
+
     
     public function ProductStore(Request $request)
     {
