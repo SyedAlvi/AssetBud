@@ -65,7 +65,7 @@
             <li><a class="dropdown-item "
                 href="">Transaction History</a></li>
 
-            <li><a class="dropdown-item text-red" href="#">Log Out</a></li>
+            <li><a class="dropdown-item text-red" href="{{route('employee.logout')}}">Log Out</a></li>
           </ul>
         </li>
         <li class="nav-item d-lg-none">
@@ -264,7 +264,7 @@
             <a class="nav-link " href="#">Transaction History</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-red" href="#">Log Out</a>
+            <a class="nav-link text-red" type="button" href="{{('employee.logout')}}">Log Out</a>
           </li>
         </ul>
       </div>
@@ -387,22 +387,23 @@
 
 
     <!-- product carousel -->
+    
     <section class="overflow-hidden pt-3 pt-xl-4">
       <div class="container">
         <div class="carousel carousel-visible">
-          <div
-            data-carousel='{"nav": false,"mouseDrag": true, "gutter": 32, "loop": true, "responsive": {"0": {"items": 1}, "768": {"items": 2}, "992": {"items": 2}, "1200": {"items": 3}}}'>
+          <div data-carousel='{"nav": false,"mouseDrag": true, "gutter": 32, "loop": true, "responsive": {"0": {"items": 1}, "768": {"items": 2}, "992": {"items": 2}, "1200": {"items": 3}}}'>
             <div>
               <div class="product">
                 <figure class="product-image">
                   <a href="#!">
                     <img src="{{url('Frontend/assets/images/products/product-1.jpg')}}" alt="Image" />
-                    <img src="{{url('Frontend/assets/images/products/product-1-2.jpg')}}" alt="Image" />
+                    {{-- <img src="{{url('Frontend/assets/images/products/product-1-2.jpg')}}" alt="Image" /> --}}
                   </a>
                 </figure>
                 <a class="product-title" href="#!">Watch</a>
                 <span class="product-price">$100 </span>
-              </div>            </div>
+              </div>           
+             </div>
             <div>
               <div class="product">
                 <figure class="product-image">
@@ -424,7 +425,8 @@
                 </figure>
                 <a class="product-title" href="#!">Black Closca Helmet</a>
                 <span class="product-price">$132 </span>
-              </div>            </div>
+              </div>          
+              </div>
             <div>
               <div class="product">
                 <figure class="product-image">
@@ -446,10 +448,13 @@
                 </figure>
                 <a class="product-title" href="#!">Gravel Black Sigg Water Bottle</a>
                 <span class="product-price">$23 <s class="text-muted">$34</s></span>
-              </div>            </div>
+              </div>            
+            </div>
           </div>
         </div>
       </div>
+              
+            
     </section>
 
 

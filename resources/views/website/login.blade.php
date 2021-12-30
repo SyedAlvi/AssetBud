@@ -65,7 +65,6 @@
                                 <label for="password" class="text-info">Password:</label><br>
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
-                            
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Login</button>
                              </div>

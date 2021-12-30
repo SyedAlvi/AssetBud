@@ -23,7 +23,7 @@
       <td><img src="{{url('/uploads/products/'.$item->image)}}" style="border-radius: 4px;" width= "100px;" alt="product image"> </td>
       <td>
         <a href="{{route('view.product', $item->id)}}"class="btn btn-info">View</a>
-        <a href=""class="btn btn-success">Update</a>
+        <a href="{{route('product.edit',$item->id)}}"class="btn btn-success">Update</a>
         <a href="{{route('delete.product', $item->id)}}"class="btn btn-danger">Delete</a> 
         </td>
     </tr>

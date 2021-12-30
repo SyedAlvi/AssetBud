@@ -2,23 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\EmployeeController;
 
 class EmployeeController extends Controller
+
 {
+   
+
     public function CreateEmployee()
     {
         return view('employee.create_employee');
     }
     public function EmployeeList()
     {
-        $employeelist = employee::all();
-        return view ('employee.employee_list', compact('employeelist'));
+        $user = User::all();
+        return view ('employee.employee_list', compact('user'));
     }
   
-    public function EmployeeStore(Request $request)
+    public function userstore(Request $request)
     {
 
       
@@ -31,23 +35,23 @@ class EmployeeController extends Controller
             'category'=>'required',
             'city'=> 'required',
             'mnumber'=>'required',
+
            
         ]);
 
          
         $image_name='';
         //step 1: check image exist in this request.
-        if($request->hasFile('employee_image'))
+        if($request->hasFile('image'))
          // step 2: generate file name
         {
-            $image_name=date('Ymdhis').'.'. $request->file('employee_image')->getClientOriginalExtension();
+            $image_name=date('Ymdhis').'.'. $request->file('image')->getClientOriginalExtension();
         
              //step 3 : store into project directory
-            $request->file('employee_image')->storeAs('/uploads/employees',$image_name);
+            $request->file('image')->storeAs('/uploads/users',$image_name);
         }
-        
-        Employee::create([
-            // 'id'=>$request->id,
+        // dd($request->all());
+        User::create([
             'name'=> $request->name,
             'email'=> $request->email,
             'password'=>bcrypt( $request->password),
@@ -55,19 +59,19 @@ class EmployeeController extends Controller
             'category'=> $request->category,
             'city'=> $request->city,
             'mnumber'=> $request->mnumber,
-            'employee_image'=>$image_name,
+            'image'=>$image_name,
         ]);
         return redirect()->back()->with('success', 'Employee Created Successfully');
 }
         public function viewemployee($employee_id)
         {
-            $employee= employee::find($employee_id);
-            return view('employee.employee_view',compact('employee'));
+            $user= User::find($employee_id);
+            return view('employee.employee_view',compact('user'));
 
         }
         public function deleteemployee($employee_id)
         {
-            Employee::find($employee_id)->delete();
+            User::find($employee_id)->delete();
             return redirect()->back()->with('sucecess', 'Employee has beeen Deleted Successfully');
         }
 }

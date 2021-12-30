@@ -66,8 +66,45 @@ class ProductController extends Controller
    
     public function deleteproduct($product_id)
     {
-        Product::find($product_id)->delete();
+        productlist::find($product_id)->delete();
         return redirect()->back()->with('sucecess', 'Product has beeen Deleted Successfully');
     }
+    // public function product_view($product_id)
+    // {
+    //     $productlist=Product::find(product_id);
+    //     return view('product.product_update', compact('productlist'));
+    // }
+
+    public function Product_update(Request $request,$product_id)
+    {
+        $image_name=null;
+        //step 1: check image exist in this request.
+        if($request->hasFile('product_image'))
+         // step 2: generate file name
+        {
+            $image_name=date('Ymdhis').'.'. $request->file('product_image')->getClientOriginalExtension();
+             //step 3 : store into project directory
+            $request->file('product_image')->storeAs('/uploads/products',$image_name);
+        }
+        //  dd($request->all());
+       
+        
+        Product::find($product_id)->update([
+            //'id'=>$request->id,
+            'name'=> $request->name,
+            'category'=> $request->category,
+            'quantity'=> $request->quantity,
+            'details'=> $request->details,
+            'image'=>$image_name
+           
+        ]);
+        return redirect()->route('product.list')->with('success', 'Asset Updated Successfully');
+        
+    }
+    public function product_edit($product_id)
+        {
+    $product=Product::find($product_id);
+   return view('product.product_update', compact('product'));
+        }
    
 }

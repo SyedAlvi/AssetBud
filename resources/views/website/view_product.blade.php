@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,6 @@
             <th> ID</th>
             <th> Name</th>
             <th> Category</th>
-            
             <th> Details</th>
             <th> Product_image</th>
           </tr>
