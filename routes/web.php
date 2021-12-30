@@ -31,7 +31,7 @@ Route::group(['prefix'=> 'user'], function(){
     Route::get('/', function(){
         return view('website.master');
     })->name('website');
-
+Route::get ('/employee/profile',[EmployeeUserController::class,'employee_profile'])->name('employee.profile');
 Route:: get('/view/product',[ProductController::class,'view_product'])->name('product.view');
 
 //user_logout
@@ -62,7 +62,8 @@ Route::get('/manage/order', [AdminController::class, 'ManageOrder'])->name('mana
 Route::get('/create/employee', [EmployeeController::class, 'CreateEmployee'])->name('create.employee');
 Route::get('employee/delete/{employee_id}', [EmployeeController::class, 'deleteemployee'])->name('delete.employee');
 Route::get('employee/view/{employee_id}', [EmployeeController::class, 'viewemployee'])->name('view.employee');
-// //Route::get('employee/update/{employee_id}', [EmployeeController::class, 'updateemployee'])->name('update.employee');
+Route::post('employee/update/{user_id}', [EmployeeController::class, 'employee_update'])->name('employee.update');
+Route::match(['get','post'],'update/{user_id}',[EmployeeController::class,'employee_edit'])->name('employee.edit');
 
 
 // //for EmployeeList

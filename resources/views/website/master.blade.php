@@ -58,8 +58,7 @@
             <i class="bi bi-person"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item "
-                href="">Profile</a></li>
+            <li><a class="dropdown-item " href="{{route('employee.profile')}}">Profile</a></li>
             <li><a class="dropdown-item "
                 href="">Orders</a></li>
             <li><a class="dropdown-item "
@@ -252,10 +251,10 @@
   
   
       <!-- mobile user menu -->
-      <div class="collapse account-collapse" id="userNav" data-bs-parent="#mainNav">
+      {{-- <div class="collapse account-collapse" id="userNav" data-bs-parent="#mainNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link " href="#">Profile</a>
+            <a class="nav-link " type="button" href="employee.profile">Profile</a>
           
           <li class="nav-item">
             <a class="nav-link " href="#">Orders</a>
@@ -264,10 +263,10 @@
             <a class="nav-link " href="#">Transaction History</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-red" type="button" href="{{('employee.logout')}}">Log Out</a>
-          </li>
+            {{-- <a class="nav-link text-red" type="button" href="{{('employee.logout')}}">Log Out</a> --}}
+          {{-- </li>
         </ul>
-      </div>
+      </div> --}}
   
   
   

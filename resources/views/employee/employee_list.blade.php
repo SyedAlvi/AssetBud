@@ -35,7 +35,7 @@
         <td><img src="{{url('/uploads/users/'.$item->image)}}" style="border-radius: 4px;" width= "100px;" alt="emploee image"> </td>
         <td>
         <a href="{{route('view.employee', $item->id)}}"class="btn btn-info">View</a>
-        <a href=""class="btn btn-success">Update</a>
+        <a href="{{route('employee.edit',$item->id)}}"class="btn btn-success">Update</a>
         <a href="{{route('delete.employee', $item->id)}}"class="btn btn-danger">Delete</a> 
         </td>
       </tr>

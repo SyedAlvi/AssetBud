@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+<div id="divToPrint">
     <div class="container-xl">
             <div class="card" style="width: 30rem; margin-left: 25%;">
                 <div class="card-body">
@@ -12,4 +13,15 @@
                 </div>
               </div>
     </div>
+  </div>
+  <input class="btn btn-primary" type="button" onClick="PrintDiv('divToPrint');" value="Print">
 @endsection
+<script language="javascript">
+  function PrintDiv(divName) {
+      var printContents = document.getElementById(divName).innerHTML;
+      var originalContents = document.body.innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents;
+  }
+</script>

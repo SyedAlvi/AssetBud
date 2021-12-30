@@ -74,4 +74,35 @@ class EmployeeController extends Controller
             User::find($employee_id)->delete();
             return redirect()->back()->with('sucecess', 'Employee has beeen Deleted Successfully');
         }
+        public function employee_update(Request $request,$user_id)
+        {
+             
+            $image_name=null;
+            //step 1: check image exist in this request.
+            if($request->hasFile('image'))
+             // step 2: generate file name
+            {
+                $image_name=date('Ymdhis').'.'. $request->file('image')->getClientOriginalExtension();
+            
+                 //step 3 : store into project directory
+                $request->file('image')->storeAs('/uploads/users',$image_name);
+            }
+            // dd($request->all());
+            User::find($user_id)->update([
+                'name'=> $request->name,
+                'email'=> $request->email,
+                'password'=>bcrypt( $request->password),
+                'address'=>$request->address,
+                'category'=> $request->category,
+                'city'=> $request->city,
+                'mnumber'=> $request->mnumber,
+                'image'=>$image_name,
+            ]);
+            return redirect()->route('employee.list')->with('success', 'Employee updated Successfully');
+    }
+    public function employee_edit($user_id)
+    {
+$user=User::find($user_id);
+return view('employee.employee_update', compact('user'));
+    }
 }

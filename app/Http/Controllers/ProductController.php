@@ -69,11 +69,7 @@ class ProductController extends Controller
         productlist::find($product_id)->delete();
         return redirect()->back()->with('sucecess', 'Product has beeen Deleted Successfully');
     }
-    // public function product_view($product_id)
-    // {
-    //     $productlist=Product::find(product_id);
-    //     return view('product.product_update', compact('productlist'));
-    // }
+  
 
     public function Product_update(Request $request,$product_id)
     {

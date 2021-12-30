@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\EmployeeUserController;
@@ -28,5 +29,12 @@ public function employeeLoginView(Request $request)
     {
         Auth::logout();
         return redirect()->route('employee.login')->with('message','Logging out.');
+    }
+    
+    public function employee_profile($user)
+    {
+        $users= User::find($user);
+        return view('website.employee_profile',compact('user'));
+
     }
 }
