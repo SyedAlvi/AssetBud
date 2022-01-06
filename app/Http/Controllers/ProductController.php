@@ -14,6 +14,16 @@ class ProductController extends Controller
     }
     public function ProductList()
     {
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $productlist = Product::  where('name','LIKE','%'.$key.'%')
+           
+                ->orWhere('category','LIKE','%'.$key.'%')
+                ->get();
+            return view('product.product_list',compact('productlist','key'));
+        }
+        
         $productlist = product::all();
         return view ('product.product_list', compact('productlist'));
     }
@@ -102,5 +112,12 @@ class ProductController extends Controller
     $product=Product::find($product_id);
    return view('product.product_update', compact('product'));
         }
+        // public function productSearch()
+        // {
+            
+        //     $productlist = Product::all();
+        //     return view('product.product_list',compact('productlist'));
+        // }
+    
    
 }

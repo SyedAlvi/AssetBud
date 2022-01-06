@@ -79,6 +79,7 @@ Route::match(['get','post'],'update/{product_id}',[ProductController::class,'pro
 // // for ProductList
 Route::get('/product/list',[ProductController:: class,'ProductList'])->name('product.list');
 Route::post('/product/store', [ProductController:: class, 'ProductStore'])->name('product.store');
+// Route::post('/product/search', [ProductController:: class, 'productSearch'])->name('product.search');
 
 // //for OrderController
 Route::get('/create/order', [OrderController::class, 'CreateOrder'])->name('create.order');

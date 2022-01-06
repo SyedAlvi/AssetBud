@@ -1,6 +1,24 @@
 @extends('master')
 @section('content')
 
+<h1>Product List</h1>
+    @if(session()->has('success'))
+        <p class="alert alert-success">
+            {{session()->get('success')}}
+        </p>
+    @endif
+<form action="{{route('product.list')}}" method="GET">
+  <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+          <input value="" type="text" placeholder="Search" name="search" class="form-control">
+      </div>
+      <div class="col-md-4">
+          <button type="submit" class="btn btn-success">Search</button>
+      </div>
+  </div>
+  </form>
+  
 <table class="table">
   <thead>
     <tr>
