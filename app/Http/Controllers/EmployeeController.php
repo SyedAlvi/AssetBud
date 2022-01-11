@@ -18,6 +18,15 @@ class EmployeeController extends Controller
     }
     public function EmployeeList()
     {
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $employeelist = User::  where('name','LIKE','%'.$key.'%')
+           
+                ->orWhere('mnumber','LIKE','%'.$key.'%')
+                ->get();
+            return view('employee.search_employee_list',compact('employeelist','key'));
+        }
         $user = User::all();
         return view ('employee.employee_list', compact('user'));
     }
