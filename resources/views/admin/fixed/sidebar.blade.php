@@ -17,6 +17,7 @@
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
+      @if(auth()->user()->role=='admin')
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="icon-head menu-icon"></i>
@@ -30,6 +31,7 @@
           </ul>
         </div>
       </li>
+      @endif
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="icon-head menu-icon"></i>

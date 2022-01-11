@@ -44,7 +44,7 @@ Route::get('/admin/login',[AdminUserController::class,'login'])->name('admin.log
 Route::post('/admin/login-view',[AdminUserController::class,'LoginView'])->name('admin.LoginView');
 
 //admin_grouping
-Route::group(['prefix'=> 'admin','middleware'=>'auth'], function(){
+Route::group(['prefix'=> 'admin','middleware'=>['auth','admin']], function(){
 
     Route::get('/', function(){
         return view('master');

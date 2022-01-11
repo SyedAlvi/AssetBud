@@ -41,9 +41,8 @@
             <a class="dropdown-item preview-item">               
                 <i class="icon-head"></i> Profile
             </a>
-            <a class="dropdown-item preview-item" href="{{route('admin.logout')}}">
-                <i class="icon-inbox" ></i> Logout
-            </a>
+            <a class="dropdown-item preview-item" href="{{route('admin.logout')}}">{{auth()->user()->name}} ({{auth()->user()->role}}) |  Logout</a>
+
           </div>
         </li>
         <li class="nav-item dropdown mr-4 d-lg-flex d-none">

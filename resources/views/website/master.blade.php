@@ -64,7 +64,7 @@
             <li><a class="dropdown-item "
                 href="">Transaction History</a></li>
 
-            <li><a class="dropdown-item text-red" href="{{route('employee.logout')}}">Log Out</a></li>
+            <li><a class="dropdown-item text-red" href="{{route('employee.logout')}}">({{auth()->user()->role}})| Log Out</a></li>
           </ul>
         </li>
         <li class="nav-item d-lg-none">

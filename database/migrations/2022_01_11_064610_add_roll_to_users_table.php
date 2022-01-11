@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageToEmployeesTable extends Migration
+class AddRollToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddImageToEmployeesTable extends Migration
      */
     public function up()
     {
-        Schema::table('employees', function (Blueprint $table) {
-            $table ->string('employee_image')->nullable();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role',20)->default('user');
         });
     }
 
@@ -25,7 +25,7 @@ class AddImageToEmployeesTable extends Migration
      */
     public function down()
     {
-        Schema::table('employees', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }
