@@ -31,13 +31,14 @@
             <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
            
           </div>
+          @if(auth()->user()->role=='admin')
         </li>
         <li class="nav-item dropdown d-flex mr-4 ">
           <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
             <i class="icon-cog"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-            <p class="mb-0 font-weight-normal float-left dropdown-header">Settings</p>
+            <p class="mb-0 font-weight-normal float-left dropdown-header"></p>
             <a class="dropdown-item preview-item">               
                 <i class="icon-head"></i> Profile
             </a>
@@ -45,6 +46,23 @@
 
           </div>
         </li>
+        @endif
+        @if(auth()->user()->role=='user')
+      </li>
+      <li class="nav-item dropdown d-flex mr-4 ">
+        <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+          <i class="icon-cog"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+          <p class="mb-0 font-weight-normal float-left dropdown-header"></p>
+          <a class="dropdown-item preview-item">               
+              <i class="icon-head"></i> Profile
+          </a>
+          <a class="dropdown-item preview-item" href="{{route('employee.logout')}}">({{auth()->user()->role}}) |  Logout</a>
+
+        </div>
+      </li>
+      @endif
         <li class="nav-item dropdown mr-4 d-lg-flex d-none">
           <a class="nav-link count-indicatord-flex align-item s-center justify-content-center" href="#">
             <i class="icon-grid"></i>

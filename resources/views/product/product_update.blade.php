@@ -25,8 +25,9 @@
   </ul>
 </div>
 @endif
+<img style="border-radius: 4px;" width="500px;" src="{{url('/uploads/products/'.$productlist->image)}}" alt="product">
     <form action="{{route('product.update',$product->id)}}" method="post" enctype="multipart/form-data">
-        
+      @method('PUT')
       @csrf
       <div class= "form-group">
         <label for="exampleFormControlInput1">Product Code</label>
@@ -39,17 +40,20 @@
         
         <div class="form-group">
           <label for="exampleFormControlSelect1">Product Category</label>
-          <select value="{{$product->category}}" name="category" class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <select name="Cname" class="form-control" id="exampleFormControlSelect1">
+            @foreach ($categories as $category)
+            <option value="{{$category->id}}?'selected': ">{{$category->Cname}}</option>
+         @endforeach
           </select>
+          
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">Product Quantity</label>
           <input value="{{$product->quantity}}" type="number" name="quantity" class="form-control" id="exampleFormControlInput1" placeholder="Product quantity">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Product Price</label>
+          <input value="{{$product->price}}" type="number" name="price" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product Name">
         </div>
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Product Details</label>

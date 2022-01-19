@@ -31,10 +31,9 @@ public function employeeLoginView(Request $request)
         return redirect()->route('employee.login')->with('message','Logging out.');
     }
     
-    public function employee_profile($user)
-    {
-        $users= User::find($user);
-        return view('website.employee_profile',compact('user'));
-
-    }
+    // public function employee_profile($user_id)
+    // {
+    //     $user= User::find($user_id);
+    //     return view('website.employee_profile',compact('user'));
+    // }
 }

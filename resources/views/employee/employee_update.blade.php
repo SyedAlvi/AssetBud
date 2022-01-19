@@ -22,7 +22,9 @@
       </ul>
     </div>
     @endif
+    <img style="border-radius: 4px;" width="500px;" src="{{url('/uploads/users/'. $user->image)}}" alt="employee">
         <form action="{{route('employee.update',$user->id)}}" method="POST" enctype="multipart/form-data" >
+          @method('PUT')
           @csrf
                 <div class="row">
                   <div class="col">
@@ -44,14 +46,8 @@
                 <input value="{{$user->address}}" type="text" name="address" class="form-control" id="inputAddress" >
               </div>
               <div class="form-group col-md-6">
-                <label for="inputState">Designation</label>
-                <select value="{{$user->category}}" name="category" class="form-control" id="exampleFormControlSelect1">
-                  <option>Manager</option>
-                  <option>General Manager</option>
-                  <option>HR</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+                <label for="inputCategory">Designation</label>
+                <input type="text" name="category" class="form-control" id="inputCategory">
               </div>
             </div>
 

@@ -44,14 +44,8 @@
                 <input type="text" name="address" class="form-control" id="inputAddress" >
               </div>
               <div class="form-group col-md-6">
-                <label for="inputState">Designation</label>
-                <select name="category" class="form-control" id="exampleFormControlSelect1">
-                  <option>Manager</option>
-                  <option>General Manager</option>
-                  <option>HR</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+                <label for="inputCategory">Designation</label>
+                <input type="text" name="category" class="form-control" id="inputCategory">
               </div>
             </div>
 

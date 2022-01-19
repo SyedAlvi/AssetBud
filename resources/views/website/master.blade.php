@@ -58,7 +58,7 @@
             <i class="bi bi-person"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item " href="{{route('employee.profile')}}">Profile</a></li>
+            {{-- <li><a class="dropdown-item " href="{{route('employee.profile')}}">Profile</a></li> --}}
             <li><a class="dropdown-item "
                 href="">Orders</a></li>
             <li><a class="dropdown-item "
@@ -283,6 +283,7 @@
     <div class="offcanvas-body">
       <ul class="list-unstyled">
         <li>
+          {{-- fdshfjdfhghdfh --}}
           <div class="row g-2 g-lg-3 align-items-center">
             <a href="#" class="col-3"><img class="img-fluid" src="{{url('Frontend/assets/images/products/product-1.jpg')}}"
                 alt="Product"></a>
@@ -392,17 +393,23 @@
         <div class="carousel carousel-visible">
           <div data-carousel='{"nav": false,"mouseDrag": true, "gutter": 32, "loop": true, "responsive": {"0": {"items": 1}, "768": {"items": 2}, "992": {"items": 2}, "1200": {"items": 3}}}'>
             <div>
-              <div class="product">
+             
+                  
+              
+              {{-- <div class="product">
+                @foreach ($productlist as $item)
                 <figure class="product-image">
                   <a href="#!">
-                    <img src="{{url('Frontend/assets/images/products/product-1.jpg')}}" alt="Image" />
-                    {{-- <img src="{{url('Frontend/assets/images/products/product-1-2.jpg')}}" alt="Image" /> --}}
+                    <img src="{{url('/uploads/products/'.$item->image)}}" alt="Image" />
+                   
                   </a>
                 </figure>
-                <a class="product-title" href="#!">Watch</a>
-                <span class="product-price">$100 </span>
-              </div>           
-             </div>
+                <a class="{{$item->name}}" href="#!"></a>
+                <span class="{{$item->category}}"> </span>
+                <span class="{{$item->details}}"> </span>
+              </div>  
+              @endforeach          --}}
+           </div>
             <div>
               <div class="product">
                 <figure class="product-image">
@@ -437,7 +444,7 @@
                 <a class="product-title" href="#!">Speaker</a>
                 <span class="product-price">$100 </span>
               </div>            </div>
-            <div>
+            <div> 
               <div class="product">
                 <figure class="product-image">
                   <a href="#!">

@@ -39,17 +39,19 @@
         
         <div class="form-group">
           <label for="exampleFormControlSelect1">Product Category</label>
-          <select name="category" class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <select name="Cname" class="form-control" id="exampleFormControlSelect1">
+            @foreach ($categories as $category)
+            <option value="{{$category->Cname}}">{{$category->Cname}}</option>
+         @endforeach
           </select>
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">Product Quantity</label>
           <input type="number" name="quantity" class="form-control" id="exampleFormControlInput1" placeholder="Product quantity">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1"> Product price</label>
+          <input type="number" name="price" class="form-control" id="exampleFormControlInput1" placeholder="Product price">
         </div>
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Product Details</label>

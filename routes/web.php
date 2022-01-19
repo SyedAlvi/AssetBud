@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\EmployeeUserController;
@@ -27,12 +28,12 @@ Route::post('/employee/login-view',[EmployeeUserController::class,'employeeLogin
 
 //User_grouping
 Route::group(['prefix'=> 'user'], function(){
-
     Route::get('/', function(){
-        return view('website.master');
+        return view('master');
     })->name('website');
-Route::get ('/employee/profile',[EmployeeUserController::class,'employee_profile'])->name('employee.profile');
-Route:: get('/view/product',[ProductController::class,'view_product'])->name('product.view');
+// Route::post ('/employee/profile/{user_id}',[EmployeeUserController::class,'employee_profile'])->name('employee.profile');
+
+// Route:: get('/view/product/{product_id}',[ProductController::class,'font'])->name('product.view');
 
 //user_logout
 Route::get('/logout',[EmployeeUserController::class,'logout'])->name('employee.logout');
@@ -76,8 +77,9 @@ Route::get('product/delete/{product_id}', [ProductController::class, 'deleteprod
 Route::get('product/view/{product_id}', [ProductController::class, 'viewproduct'])->name('view.product');
 Route::post('product/update/{product_id}', [ProductController::class, 'Product_update'])->name('product.update');
 Route::match(['get','post'],'update/{product_id}',[ProductController::class,'product_edit'])->name('product.edit');
+Route:: get('/view/product',[ProductController::class,'User_view_product'])->name('product.view');
 // // for ProductList
-Route::get('/product/list',[ProductController:: class,'ProductList'])->name('product.list');
+Route::get('/product/list',[ProductController:: class,'Search_ProductList'])->name('product.list');
 Route::post('/product/store', [ProductController:: class, 'ProductStore'])->name('product.store');
 // Route::post('/product/search', [ProductController:: class, 'productSearch'])->name('product.search');
 
@@ -86,4 +88,9 @@ Route::get('/create/order', [OrderController::class, 'CreateOrder'])->name('crea
 // //for OrderList
 Route::get('/order/list',[OrderController:: class,'OrderList'])->name('order.list');
 Route::post('/order/store', [OrderController:: class, 'OrderStore'])->name('order.store');
+
+//category
+Route::get('/category/create',[CategoryController::class,'product_category'])->name('product.category');
+Route::post('/category/add',[CategoryController::class,'category_create'])->name('category.store');
+Route::get('/product/category',[CategoryController::class,'categoryList'])->name('category.list');
 });

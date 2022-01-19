@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function Home()
-    {
-        return view('website.master');
-    }
+    // public function Home($product_id)
+    // {
+    //     $productlist=Product::find($product_id);
+    //     return view('website.master' , compact(productlist));
+    // }
+   
 }

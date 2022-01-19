@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProductController;
 
@@ -10,9 +11,10 @@ class ProductController extends Controller
 {
     public function CreateProduct()
     {
-        return view('product.create_product');
+        $categories=Category::all();
+        return view('product.create_product',compact('categories'));
     }
-    public function ProductList()
+    public function Search_ProductList()
     {
         $key=null;
         if(request()->search){
@@ -24,15 +26,16 @@ class ProductController extends Controller
             return view('product.product_list',compact('productlist','key'));
         }
         
-        $productlist = product::all();
+        $productlist = product::with('Category')->get();
         return view ('product.product_list', compact('productlist'));
+     
     }
   
-    public function view_product()
-    {
-        $productlist = product::all();
-        return view('website.view_product',compact('productlist'));
-    }
+    // public function User_view_product()
+    // {
+    //     $productlist = product::all();
+    //     return view('product.view_product',compact('productlist'));
+    // }
     public function viewproduct($product_id)
     {
         $productlist = product::find($product_id);
@@ -57,16 +60,18 @@ class ProductController extends Controller
         $request->validate([
             'id'=>'required',
             'name'=>'required',
-            'category'=>'required',
+            'Cname'=>'required',
             'quantity'=>'required' ,
+            'price'=>'required',
             'details'=> 'required',
             
         ]);
         Product::create([
             //'id'=>$request->id,
             'name'=> $request->name,
-            'category'=> $request->category,
+            'Cname'=> $request->Cname,
             'quantity'=> $request->quantity,
+            'price'=> $request->price,
             'details'=> $request->details,
             'image'=>$image_name
            
@@ -76,7 +81,7 @@ class ProductController extends Controller
    
     public function deleteproduct($product_id)
     {
-        productlist::find($product_id)->delete();
+        Product::find($product_id)->delete();
         return redirect()->back()->with('sucecess', 'Product has beeen Deleted Successfully');
     }
   
@@ -98,8 +103,9 @@ class ProductController extends Controller
         Product::find($product_id)->update([
             //'id'=>$request->id,
             'name'=> $request->name,
-            'category'=> $request->category,
+            'Cname'=> $request->Cname,
             'quantity'=> $request->quantity,
+            'price'=> $request->price,
             'details'=> $request->details,
             'image'=>$image_name
            
@@ -112,12 +118,5 @@ class ProductController extends Controller
     $product=Product::find($product_id);
    return view('product.product_update', compact('product'));
         }
-        // public function productSearch()
-        // {
-            
-        //     $productlist = Product::all();
-        //     return view('product.product_list',compact('productlist'));
-        // }
-    
-   
+
 }

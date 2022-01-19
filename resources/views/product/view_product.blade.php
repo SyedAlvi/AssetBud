@@ -26,25 +26,22 @@
       <th> Name</th>
       <th> Category</th>
       <th> Quantity</th>
-      <th> Price</th>
       <th> Details</th>
       <th> Product_image</th>
     </tr>
   </thead>
   <tbody>
-    @foreach ($productlist as $product)
+    @foreach ($productlist as $item)
     <tr>
-      <th>{{ $product->id}}</th>
-      <th>{{ $product->name}}</th>
-      <th>{{optional( $product->category)->Cname}}</th>
-      <th>{{ $product->quantity}}</th>
-      <th>{{ $product->price}}</th>
-      <th>{{ $product->details}}</th>
-      <td><img src="{{url('/uploads/products/'. $product->image)}}" style="border-radius: 4px;" width= "100px;" alt="product image"> </td>
+      <th>{{$item->id}}</th>
+      <th>{{$item->name}}</th>
+      <th>{{$item->Cname}}</th>
+      <th>{{$item->quantity}}</th>
+      <th>{{$item->details}}</th>
+      <td><img src="{{url('/uploads/products/'.$item->image)}}" style="border-radius: 4px;" width= "100px;" alt="product image"> </td>
       <td>
-        <a href="{{route('view.product',  $product->id)}}"class="btn btn-info">View</a>
-        <a href="{{route('product.edit', $product->id)}}"class="btn btn-success">Update</a>
-        <a href="{{route('delete.product',  $product->id)}}"class="btn btn-danger">Delete</a> 
+        <a href="{{route('view.product', $item->id)}}"class="btn btn-info">View</a>
+       
         </td>
     </tr>
     @endforeach

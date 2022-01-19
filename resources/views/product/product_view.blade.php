@@ -6,7 +6,7 @@
                   <h5 class="card-title">Product Details</h5>
                   <img src="{{url('/uploads/products/'.$productlist->image)}}" style="border-radius:4px" height="200px" width="200px" alt="product image">
                   <p><b>Product Name: {{$productlist->name}}</b></p>
-                  <p><b>Product category: {{$productlist->category}}</b></p>
+                  <p><b>Product category: {{$productlist->Cname}}</b></p>
                   <p><b>Product details: {{$productlist->details}}</b></p>
                 </div>
               </div>
