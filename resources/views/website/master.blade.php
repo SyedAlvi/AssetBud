@@ -40,18 +40,25 @@
   
       <!-- secondary -->
       <ul class="navbar-nav navbar-nav-secondary order-lg-3">
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link nav-icon" data-bs-toggle="offcanvas" href="#offcanvasCart" role="button"
             aria-controls="offcanvasCart">
             <i class="bi bi-cart2"></i>
           </a>
         </li>
         <li class="nav-item d-lg-none">
-          <a class="nav-link nav-icon" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#userNav"
+          <a class="nav-link nav-icon" href="" role="button" data-bs-toggle="collapse" data-bs-target="#userNav"
             aria-expanded="false">
             <i class="bi bi-person"></i>
           </a>
-        </li>
+        </li> --}}
+{{-- ------------cart------------------- --}}
+
+{{-- {{count(cart::content())}} --}}
+        <a href="{{route('view.cart')}}"><span class="badge badge-success">Cart({{count(Cart::content())}})</span></a>
+       
+       
+       
         <li class="nav-item dropdown dropdown-hover d-none d-lg-block">
           <a class="nav-link nav-icon" role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -384,11 +391,102 @@
         </video>
       </div>
     </section>
+{{-- messafe-------------------------------- --}}
+@if(session()->has('success'))
+<p class="alert alert-success">
+  {{session()->get('success')}}
+</p>
+@endif
 
+@if ($errors->any())
+<div class="alert alert-warning" role="alert">
+<ul>
+@foreach ($errors->all() as $error)
+  <li>
+    {{$error}}
+  </li>   
+@endforeach
+</ul>
+</div>
+@endif
+
+{{-- -------css carousel-------- --}}
+<style>
+  #used{
+    width: 100%;
+  }
+  .products-single{
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+    margin: 10px;
+   
+    padding: 10px;
+    width: 320px;
+  }
+  .btn{
+    background-color: rgb(15, 95, 15);
+    padding: 3px;
+    border-radius: 4px;
+    margin-left: 48px;
+    color: #fcf7f7
+    
+  }
+  .btn:hover{
+    background-color: rgb(207, 216, 216);
+  }
+  .img-fluid{
+    margin-left: 3px;
+  }
+  .pname{
+    font-size: 19px;
+    margin: 10px;
+    font-family: Dongle;
+    color: #353333;
+
+  }
+</style>
 
     <!-- product carousel -->
-    
-    <section class="overflow-hidden pt-3 pt-xl-4">
+
+ 
+<div class="row special-list " id="used">
+
+
+    @foreach ($product as $key=>$item )
+<div class="col-lg-3 col-md-6 special-grid best-seller">
+    <div class="products-single fix">
+        <div class="box-img-hover">
+            <div class="type-lb">
+
+            </div>
+            <img style="height: 200px" name="image" src="{{url('/uploads/products/'. $item->image)}}" class="img-fluid" alt="Image">
+            <div class="mask-icon">
+                {{-- <ul>
+                    <li><a href="{{route('Carousel.product',$item->id)}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                </ul> --}}
+            </div>
+        </div>
+        <div class="why-text">
+            <h4 class="name">product name: {{$item->name}}</h4>
+            <span class="pname">description: {{$item->details}} </span><br>
+            <a href="" class="btn">Details</a>
+            <a href="{{route('add.cart',$item->id)}}" class="btn">Add to Cart</a>
+            
+        </div>
+    </div>
+</div>
+    @endforeach
+
+
+</div>
+</div>
+</div>
+    {{-- <section class="overflow-hidden pt-3 pt-xl-4">
       <div class="container">
         <div class="carousel carousel-visible">
           <div data-carousel='{"nav": false,"mouseDrag": true, "gutter": 32, "loop": true, "responsive": {"0": {"items": 1}, "768": {"items": 2}, "992": {"items": 2}, "1200": {"items": 3}}}'>
@@ -396,21 +494,22 @@
              
                   
               
-              {{-- <div class="product">
-                @foreach ($productlist as $item)
+              <div class="product">
+                @foreach ($product as $item)
                 <figure class="product-image">
                   <a href="#!">
-                    <img src="{{url('/uploads/products/'.$item->image)}}" alt="Image" />
+                    <img class="img-fluid img-thumbnail img-responsive" src="{{url('/uploads/products/'.$item->image)}}" alt="Image" />
                    
                   </a>
                 </figure>
                 <a class="{{$item->name}}" href="#!"></a>
                 <span class="{{$item->category}}"> </span>
                 <span class="{{$item->details}}"> </span>
+                @endforeach   
               </div>  
-              @endforeach          --}}
+               
            </div>
-            <div>
+            {{-- <div>
               <div class="product">
                 <figure class="product-image">
                   <a href="#!">
@@ -454,17 +553,17 @@
                 </figure>
                 <a class="product-title" href="#!">Gravel Black Sigg Water Bottle</a>
                 <span class="product-price">$23 <s class="text-muted">$34</s></span>
-              </div>            
-            </div>
+              </div>             --}}
+            {{-- </div>
           </div>
         </div>
       </div>
               
             
-    </section>
+    </section> --}} 
 
 
-    <!-- categories -->
+    {{-- <!-- categories -->
     <section class="py-15 py-xl-20">
       <div class="container">
         <div class="row mb-5">
@@ -523,11 +622,11 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
 
     <!-- product carousel -->
-    <section class="overflow-hidden">
+    {{-- <section class="overflow-hidden">
       <div class="container">
         <div class="row align-items-end mb-5">
           <div class="col-lg-8 mb-2 mb-lg-0">
@@ -599,7 +698,7 @@
         </div>
       </div>
     </section>
-
+ --}}
 
     <!-- text -->
     {{-- <section class="py-15 py-xl-20">

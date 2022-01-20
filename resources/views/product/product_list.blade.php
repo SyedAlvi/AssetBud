@@ -28,6 +28,7 @@
       <th> Quantity</th>
       <th> Price</th>
       <th> Details</th>
+      
       <th> Product_image</th>
     </tr>
   </thead>
@@ -36,11 +37,12 @@
     <tr>
       <th>{{ $product->id}}</th>
       <th>{{ $product->name}}</th>
-      <th>{{optional( $product->category)->Cname}}</th>
+      <th>{{$product->Cname}}</th>
       <th>{{ $product->quantity}}</th>
       <th>{{ $product->price}}</th>
       <th>{{ $product->details}}</th>
       <td><img src="{{url('/uploads/products/'. $product->image)}}" style="border-radius: 4px;" width= "100px;" alt="product image"> </td>
+      
       <td>
         <a href="{{route('view.product',  $product->id)}}"class="btn btn-info">View</a>
         <a href="{{route('product.edit', $product->id)}}"class="btn btn-success">Update</a>

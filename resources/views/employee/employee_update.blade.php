@@ -24,7 +24,7 @@
     @endif
     <img style="border-radius: 4px;" width="500px;" src="{{url('/uploads/users/'. $user->image)}}" alt="employee">
         <form action="{{route('employee.update',$user->id)}}" method="POST" enctype="multipart/form-data" >
-          @method('PUT')
+     
           @csrf
                 <div class="row">
                   <div class="col">

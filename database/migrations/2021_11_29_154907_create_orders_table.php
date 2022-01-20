@@ -15,9 +15,10 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('category');
-            $table->string('details');
+            $table->string('name')->nullable();
+            $table->string('category')->nullable();
+            $table->string('image')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

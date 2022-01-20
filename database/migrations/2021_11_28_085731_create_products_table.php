@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('quantity')->nullable();
             $table->string('price')->nullable();
             $table->string('details')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

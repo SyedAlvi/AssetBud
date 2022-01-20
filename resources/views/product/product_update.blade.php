@@ -25,9 +25,9 @@
   </ul>
 </div>
 @endif
-<img style="border-radius: 4px;" width="500px;" src="{{url('/uploads/products/'.$productlist->image)}}" alt="product">
+<img style="border-radius: 4px;" width="500px;" src="{{url('/uploads/products/'.$product->image)}}" alt="product">
     <form action="{{route('product.update',$product->id)}}" method="post" enctype="multipart/form-data">
-      @method('PUT')
+      @method('POST')
       @csrf
       <div class= "form-group">
         <label for="exampleFormControlInput1">Product Code</label>
@@ -38,15 +38,7 @@
           <input value="{{$product->name}}" type="name" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product Name">
         </div>
         
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Product Category</label>
-          <select name="Cname" class="form-control" id="exampleFormControlSelect1">
-            @foreach ($categories as $category)
-            <option value="{{$category->id}}?'selected': ">{{$category->Cname}}</option>
-         @endforeach
-          </select>
-          
-        </div>
+       
         <div class="form-group">
           <label for="exampleFormControlInput1">Product Quantity</label>
           <input value="{{$product->quantity}}" type="number" name="quantity" class="form-control" id="exampleFormControlInput1" placeholder="Product quantity">

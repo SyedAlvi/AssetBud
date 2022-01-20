@@ -18,12 +18,6 @@
           <span class="menu-title">Dashboard</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="ui-basic">
-          <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{route('product.view')}}">Dashboard</a></li>
-            
-          </ul>
-        </div>
       </li>
      
       @if(auth()->user()->role=='admin')
@@ -63,7 +57,7 @@
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{route('manage.order')}}">Manage Order</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{route('create.order')}}">Request Order</a></li>
+           
           </ul>
         </div>
       </li>

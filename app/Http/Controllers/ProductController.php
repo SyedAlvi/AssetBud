@@ -103,7 +103,7 @@ class ProductController extends Controller
         Product::find($product_id)->update([
             //'id'=>$request->id,
             'name'=> $request->name,
-            'Cname'=> $request->Cname,
+            // 'Cname'=> $request->Cname,
             'quantity'=> $request->quantity,
             'price'=> $request->price,
             'details'=> $request->details,

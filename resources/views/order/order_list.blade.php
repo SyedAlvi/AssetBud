@@ -6,17 +6,19 @@
     <tr>
       <th> ID</th>
       <th> Name</th>
-      <th> Category</th>
-      <th> Details</th>
+      <th> image</th>
+      <th> Status</th>
     </tr>
   </thead>
   <tbody>
-    @foreach ($orderlist as $item)
+    @foreach ($data as $data)
     <tr>
-      <th>{{$item->id}}</th>
-      <th>{{$item->name}}</th>
-      <th>{{$item->category}}</th>
-      <th>{{$item->details}}</th>
+      <th>{{$data->id}}</th>
+      <th>{{$data->name}}</th>
+      <th>{{$data->image}}</th>
+      <th>{{$data->status}} </th>
+      @if($data->status=='pending')
+      <a href="{{route('approve',$data->id)}}" class="btn btn-dark"> Approve</a>    
     </tr>
     @endforeach
   </tbody>

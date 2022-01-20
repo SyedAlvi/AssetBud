@@ -102,7 +102,7 @@ class EmployeeController extends Controller
                 'email'=> $request->email,
                 'password'=>bcrypt( $request->password),
                 'address'=>$request->address,
-                'category'=> $request->category,
+                // 'category'=> $request->category,
                 'city'=> $request->city,
                 'mnumber'=> $request->mnumber,
                 'image'=>$image_name,

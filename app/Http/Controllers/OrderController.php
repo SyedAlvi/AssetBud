@@ -8,10 +8,7 @@ use App\Http\Controllers\OrderController;
 
 class OrderController extends Controller
 {
-    public function CreateOrder()
-    {
-        return view('order.create_order');
-    }
+   
     public function OrderList()
     {
         $orderlist = order::all();
@@ -20,19 +17,33 @@ class OrderController extends Controller
   
     public function OrderStore(Request $request)
     {
-        //dd($request->all());
-        $request->validate([
-            'id'=>'required',
-            'name'=>'required',
-            'category'=>'required',
-            'details'=> 'required',
-        ]);
-        Order::create([
+         
+        // dd($request->all());
+        // $request->validate([
+        //     'id'=>'required',
+        //     'name'=>'required',
+           
+        //     'details'=> 'required',
+        // ]);
+        
+       $a = Order::create([
             'id'=>$request->id,
             'name'=> $request->name,
-            'category'=> $request->category,
-            'details'=> $request->details,
+            'image'=> $request->image,
+            'status'=> $request->status,
         ]);
-        return redirect()->back()->with('success', 'Order Created Successfully');
+
+
+      
+        return redirect()->route('Carousel.product')->with('success', 'Order Created Successfully');
 }
+public function OrderStatus($id){
+
+          $data=Order::find($id);
+
+         $data->update(['status'=>'Approved']);
+
+         return redirect()-back();
+}
+
 }
