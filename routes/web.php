@@ -30,10 +30,7 @@ Route::post('/employee/login-view',[EmployeeUserController::class,'employeeLogin
 
 
 //User_grouping
-// Route::group(['prefix'=> 'user'], function(){
-    // Route::get('/master', function(){
-    //     return view('website.master');
-    // })->name('website');
+
 // Route::post ('/employee/profile/{user_id}',[EmployeeUserController::class,'employee_profile'])->name('employee.profile');
 
 // Route:: get('/view/product/{product_id}',[ProductController::class,'font'])->name('product.view');

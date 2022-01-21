@@ -21,10 +21,9 @@ class CartController extends Controller
          'price'=>$product->price,
          'qty' => 1, 
          'weight'=>0,
-         'options' => [url('/uploads/products/')]
-    
+         'options' =>array('image'=>$product->image)
       ]);
-
+// dd($cart);
     //   dd($a);
      return redirect()->back()->with('success','product added to cart');
     // dd(Cart::content());
