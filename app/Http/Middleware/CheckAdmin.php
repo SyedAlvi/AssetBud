@@ -21,7 +21,7 @@ class CheckAdmin
         return $next($request);
     }else
     {
-        return redirect()->route('website')->with('error','Permission denied.');
+        return redirect()->route('Carousel.product')->with('error','Permission denied.');
     }
 }
 }

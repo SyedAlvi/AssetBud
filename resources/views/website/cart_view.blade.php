@@ -49,14 +49,21 @@
 
 
 
-<form action="{{route('order.store')}}" method="POST" enctype="multipart/form-data">
-  @csrf
+
+
+
+  
 <div class="offcanvas offcanvas-end border border-primary rounded" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCart">
+  <form action="{{route('order.store')}}" method="POST" enctype="multipart/form-data">
+    @method('PATCH')
+    @csrf
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasCartLabel">Shopping Cart</h5>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       <span class="item">You have {{count($cart)}} item </span>
     </div>
+ 
+     
     @foreach ($cart as $item)
        
    {{-- @dd($item) --}}
@@ -98,8 +105,9 @@
    
     <span>Subtotal: {{Cart::subtotal()}}</span>
 
-    <a href="{{route('order.store')}}" class="btn btn-primary" style="background-color: #007bff; padding:10px; border-radius:5px; color:#ffffff">Request</a>
-  </form>
+    <button type="submit" class="btn btn-primary" style="background-color: #007bff; padding:10px; border-radius:5px; color:#ffffff">Request</button>
+  
+</form>
 {{-- 
     <div class="card" style="width: 18rem;">
         @foreach ($cart as $item)

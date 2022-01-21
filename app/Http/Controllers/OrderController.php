@@ -18,7 +18,7 @@ class OrderController extends Controller
     public function OrderStore(Request $request)
     {
          
-        // dd($request->all());
+        
         // $request->validate([
         //     'id'=>'required',
         //     'name'=>'required',
@@ -26,7 +26,7 @@ class OrderController extends Controller
         //     'details'=> 'required',
         // ]);
         
-       $a = Order::create([
+           Order::create([
             'id'=>$request->id,
             'name'=> $request->name,
             'image'=> $request->image,
@@ -35,7 +35,7 @@ class OrderController extends Controller
 
 
       
-        return redirect()->route('Carousel.product')->with('success', 'Order Created Successfully');
+        return redirect()->route('website.cart_view')->with('success', 'request pass successfully');
 }
 public function OrderStatus($id){
 

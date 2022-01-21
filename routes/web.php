@@ -95,7 +95,7 @@ Route::post('/product/store', [ProductController:: class, 'ProductStore'])->name
 // Route::get('/create/order', [OrderController::class, 'CreateOrder'])->name('create.order');
 // //for OrderList
 Route::get('/order/list',[OrderController:: class,'OrderList'])->name('order.list');
-Route::get('/order/store', [OrderController:: class, 'OrderStore'])->name('order.store');
+Route::post('/order/store', [OrderController:: class, 'OrderStore'])->name('order.store');
 Route::post('/status/{id}', [OrderController:: class, 'OrderStatus'])->name('order.status');
 
 
