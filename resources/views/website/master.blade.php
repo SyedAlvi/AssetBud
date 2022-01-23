@@ -11,22 +11,22 @@
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
-  
+
       gtag('config', 'G-6YWB4ECCWW');
   </script>
-  
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{url('Frontend/assets/images/favicon.ico')}}" type="image/x-icon" />
-  
+
   <!-- Libs CSS -->
   <link rel="stylesheet" href="{{url('Frontend/assets/css/libs.bundle.css')}}" />
-  
+
   <!-- Main CSS -->
   <link rel="stylesheet" href="{{url('Frontend/assets/css/index.bundle.css')}}" />
-  
+
   <!-- Title -->
   <title>Shop</title></head>
 
@@ -37,7 +37,7 @@
   <nav id="mainNav" class="navbar navbar-expand-lg navbar-sticky navbar-dark">
     <div class="container">
       <a href="index.html" class="navbar-brand"><img src="{{url('Frontend/assets/images/logo/logo-light.svg')}}" alt="Logo"></a>
-  
+
       <!-- secondary -->
       <ul class="navbar-nav navbar-nav-secondary order-lg-3">
         {{-- <li class="nav-item">
@@ -55,10 +55,12 @@
 {{-- ------------cart------------------- --}}
 
 {{-- {{count(cart::content())}} --}}
-        <a href="{{route('view.cart')}}"><span class="badge badge-success">Cart({{count(Cart::content())}})</span></a>
-       
-       
-       
+        {{-- <a href="{{route('view.cart')}}"><span class="badge badge-success">Cart</span></a> --}}
+        {{-- new------------------------------------------------------------------------------------------------------ --}}
+        <a href="{{route('new.cart.get')}}"><span class="badge badge-success">Cart({{session()->has('cart') ? count(session()->get('cart')):0}})</span></a>
+
+
+
         <li class="nav-item dropdown dropdown-hover d-none d-lg-block">
           <a class="nav-link nav-icon" role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -80,9 +82,9 @@
             <span class="bi bi-list"></span>
           </a>
         </li>
- 
+
       </ul>
-  
+
       <!-- primary -->
       {{-- <div class="collapse navbar-collapse" id="navbar" data-bs-parent="#mainNav">
         <ul class="navbar-nav">
@@ -91,7 +93,7 @@
               aria-expanded="false">
               Landings
             </a>
-  
+
             <ul class="dropdown-menu dropdown-menu-md" aria-labelledby="navbarDropdown-1">
               <li><a class="dropdown-item "
                   href="startup.html">Startup</a></li>
@@ -175,7 +177,7 @@
                       href="coming-soon.html">Coming Soon</a>
                   </div>
                 </div>
-               
+
               </div>
             </div>
           </li>
@@ -251,18 +253,18 @@
               </li>
             </ul>
           </li>
-         
+
         </ul>
       </div> --}}
-  
-  
-  
+
+
+
       <!-- mobile user menu -->
       {{-- <div class="collapse account-collapse" id="userNav" data-bs-parent="#mainNav">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link " type="button" href="employee.profile">Profile</a>
-          
+
           <li class="nav-item">
             <a class="nav-link " href="#">Orders</a>
           </li>
@@ -274,14 +276,14 @@
           {{-- </li>
         </ul>
       </div> --}}
-  
-  
-  
-  
+
+
+
+
     </div>
   </nav>
-  
-  
+
+
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCart">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasCartLabel">Shopping Cart</h5>
@@ -392,7 +394,7 @@
       </div>
     </section>
 {{-- messafe-------------------------------- --}}
-@if(session()->has('success'))
+{{-- @if(session()->has('success'))
 <p class="alert alert-success">
   {{session()->get('success')}}
 </p>
@@ -404,7 +406,7 @@
 @foreach ($errors->all() as $error)
   <li>
     {{$error}}
-  </li>   
+  </li>
 @endforeach
 </ul>
 </div>
@@ -422,7 +424,7 @@
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     box-sizing: border-box;
     margin: 10px;
-   
+
     padding: 10px;
     width: 320px;
   }
@@ -432,7 +434,7 @@
     border-radius: 4px;
     margin-left: 48px;
     color: #fcf7f7
-    
+
   }
   .btn:hover{
     background-color: rgb(207, 216, 216);
@@ -447,11 +449,52 @@
     color: #353333;
 
   }
-</style>
+</style> --}}
 
     <!-- product carousel -->
 
- 
+{{--
+<div class="row special-list " id="used">
+
+
+    @foreach ($product as $key=>$item )
+<div class="col-lg-3 col-md-6 special-grid best-seller">
+    <div class="products-single fix">
+        <div class="box-img-hover">
+            <div class="type-lb">
+
+            </div>
+            <img style="height: 200px" name="image" src="{{url('/uploads/products/'. $item->image)}}" class="img-fluid" alt="Image">
+            <div class="mask-icon"> --}}
+                {{-- <ul>
+                    <li><a href="{{route('Carousel.product',$item->id)}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                </ul> --}}
+            {{-- </div>
+        </div>
+        <div class="why-text">
+            <h4 class="name">product name: {{$item->name}}</h4>
+            <span class="pname">description: {{$item->details}} </span><br>
+            <a href="" class="btn">Details</a>
+            <a href="{{route('add.cart',$item->id)}}" class="btn">Add to Cart</a>
+
+        </div>
+    </div>
+</div>
+    @endforeach
+
+
+</div>
+</div>
+</div>
+ --}}
+
+
+
+
+
+{{-- new cart--------------------------------------------------------------------------------------------  --}}
 <div class="row special-list " id="used">
 
 
@@ -475,8 +518,8 @@
             <h4 class="name">product name: {{$item->name}}</h4>
             <span class="pname">description: {{$item->details}} </span><br>
             <a href="" class="btn">Details</a>
-            <a href="{{route('add.cart',$item->id)}}" class="btn">Add to Cart</a>
-            
+            <a href="{{route('new.cart',$item->id)}}" class="btn">Add to Cart</a>
+
         </div>
     </div>
 </div>
@@ -491,23 +534,23 @@
         <div class="carousel carousel-visible">
           <div data-carousel='{"nav": false,"mouseDrag": true, "gutter": 32, "loop": true, "responsive": {"0": {"items": 1}, "768": {"items": 2}, "992": {"items": 2}, "1200": {"items": 3}}}'>
             <div>
-             
-                  
-              
+
+
+
               <div class="product">
                 @foreach ($product as $item)
                 <figure class="product-image">
                   <a href="#!">
                     <img class="img-fluid img-thumbnail img-responsive" src="{{url('/uploads/products/'.$item->image)}}" alt="Image" />
-                   
+
                   </a>
                 </figure>
                 <a class="{{$item->name}}" href="#!"></a>
                 <span class="{{$item->category}}"> </span>
                 <span class="{{$item->details}}"> </span>
-                @endforeach   
-              </div>  
-               
+                @endforeach
+              </div>
+
            </div>
             {{-- <div>
               <div class="product">
@@ -530,7 +573,7 @@
                 </figure>
                 <a class="product-title" href="#!">Black Closca Helmet</a>
                 <span class="product-price">$132 </span>
-              </div>          
+              </div>
               </div>
             <div>
               <div class="product">
@@ -543,7 +586,7 @@
                 <a class="product-title" href="#!">Speaker</a>
                 <span class="product-price">$100 </span>
               </div>            </div>
-            <div> 
+            <div>
               <div class="product">
                 <figure class="product-image">
                   <a href="#!">
@@ -558,9 +601,9 @@
           </div>
         </div>
       </div>
-              
-            
-    </section> --}} 
+
+
+    </section> --}}
 
 
     {{-- <!-- categories -->

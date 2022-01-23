@@ -44,8 +44,10 @@ Route::get('/add-to-cart/{id}',[CartController::class,'addTocart'])->name('add.c
 Route::get('/view-cart',[CartController::class,'viewCart'])->name('view.cart');
 Route::get('/remove-cart/{rowId}',[CartController::class,'remove'])->name('remove.cart');
 
-
-
+// cart new---------------------------------------------------------------
+Route::get('/add/cart/{id}',[CartController::class,'Cart'])->name('new.cart');
+Route::get('/get/cart/view',[CartController::class,'getCart'])->name('new.cart.get');
+Route::get('/clear/cart',[CartController::class,'clearCart'])->name('clear.cart');
 //  });
 
 //admin_Login
@@ -58,7 +60,7 @@ Route::group(['prefix'=> 'admin','middleware'=>['auth','admin']], function(){
     Route::get('/', function(){
         return view('master');
     })->name('home');
- 
+
 //admin_logout
  Route::get('/logout',[AdminUserController::class,'logout'])->name('admin.logout');
 
