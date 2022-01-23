@@ -25,7 +25,6 @@ use App\Http\Controllers\EmployeeUserController;
 
 
 
-<<<<<<< HEAD
 //admin_Login
 Route::get('login',[AdminUserController::class,'login'])->name('admin.login');
 Route::post('/admin/login',[AdminUserController::class,'LoginView'])->name('admin.LoginView');
@@ -36,13 +35,6 @@ Route::get('/add/cart/{id}',[CartController::class,'Cart'])->name('new.cart');
 Route::get('/get/cart/view',[CartController::class,'getCart'])->name('new.cart.get');
 Route::get('/clear/cart',[CartController::class,'clearCart'])->name('clear.cart');
 
-=======
-// cart new---------------------------------------------------------------
-Route::get('/add/cart/{id}',[CartController::class,'Cart'])->name('new.cart');
-Route::get('/get/cart/view',[CartController::class,'getCart'])->name('new.cart.get');
-Route::get('/clear/cart',[CartController::class,'clearCart'])->name('clear.cart');
-//  });
->>>>>>> 26df531658424574b6cd9ebdfe5a9b24681ec7e5
 
 
 //admin_grouping
