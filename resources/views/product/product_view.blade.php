@@ -9,6 +9,7 @@
                   <p><b>Product category: {{$productlist->Cname}}</b></p>
                   <p><b>Product details: {{$productlist->details}}</b></p>
                 </div>
+                <a href="{{route('new.cart',$productlist->id)}}" class="btn btn-success">add to cart</a> 
               </div>
     </div>
 @endsection

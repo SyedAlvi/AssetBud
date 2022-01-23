@@ -12,13 +12,14 @@
     </div>
 
     <ul class="nav">
+      @if(auth()->user()->role=='user')
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-          <i class="icon-head menu-icon"></i>
-          <span class="menu-title">Dashboard</span>
-          <i class="menu-arrow"></i>
+        <a class="nav-link" href="{{route('product.cart')}}">
+          <i class="icon-file menu-icon"></i>
+          <span class="menu-title">Product List</span>
         </a>
       </li>
+      @endif
      
       @if(auth()->user()->role=='admin')
       <li class="nav-item">
@@ -29,12 +30,14 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
+            
           <li class="nav-item"> <a class="nav-link" href="{{route('manage.employee')}}">Manage Employee</a></li>
           {{-- <li class="nav-item"> <a class="nav-link" href=""></a></li> --}}
           </ul>
         </div>
       </li>
       @endif
+      @if(auth()->user()->role=='admin')
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="icon-head menu-icon"></i>
@@ -43,11 +46,15 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
+                 
+      
             <li class="nav-item"> <a class="nav-link" href="{{route('manage.product')}}">Manage Product</a></li>
-            
+    
           </ul>
         </div>
       </li>
+      @endif
+      @if(auth()->user()->role=='admin')
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="icon-head menu-icon"></i>
@@ -56,11 +63,16 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{route('manage.order')}}">Manage Order</a></li>
+                 
+     
+            <li class="nav-item"> <a class="nav-link" href="{{route('order.list')}}">Manage Order</a></li>
+        
            
           </ul>
         </div>
       </li>
+      @endif
+     
       <li class="nav-item">
         <a class="nav-link" href="">
           <i class="icon-file menu-icon"></i>
@@ -86,26 +98,6 @@
         </a>
       </li> --}}
       <li class="nav-item">
-        {{-- <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-          <i class="icon-head menu-icon"></i>
-          <span class="menu-title">User Pages</span>
-          <i class="menu-arrow"></i>
-        </a> --}}
-        {{-- <div class="collapse" id="auth">
-          <ul class="nav flex-column sub-menu">
-            {{-- <li class="nav-item"> <a class="nav-link" href="{{route('admin.logout')}}"> logout </a></li> --}}
-            {{-- <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
-          </ul>
-        </div> 
-      </li> --}}
-      {{-- <li class="nav-item">
-        <a class="nav-link" href="docs/documentation.html">
-          <i class="icon-book menu-icon"></i>
-          <span class="menu-title">Documentation</span>
-        </a>
-      </li> --}}
+    
     </ul>
   </nav

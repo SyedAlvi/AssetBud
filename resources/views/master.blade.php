@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="{{url('Backend/vendors/font-awesome/css/font-awesome.min.css')}}">
   <link rel="stylesheet" href="{{url('Backend/vendors/jquery-bar-rating/fontawesome-stars-o.css')}}">
   <link rel="stylesheet" href="{{url('Backend/vendors/jquery-bar-rating/fontawesome-stars.css')}}">
+  <link rel="stylesheet" href="{{url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css')}}">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{url('Backend/css/style.css')}}">

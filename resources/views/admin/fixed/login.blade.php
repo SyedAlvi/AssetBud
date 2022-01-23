@@ -40,7 +40,7 @@
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="{{route('admin.LoginView')}}" method="post">
                             @csrf
-                            <h3 class="text-center text-info">Admin Login</h3>
+                            <h3 class="text-center text-info"> Login</h3>
                            
                          @if ($errors->any())
             <div class="alert alert-danger">

@@ -1,3 +1,5 @@
+
+
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
       <a class="navbar-brand brand-logo" href="">Assets Bud</a>
@@ -31,6 +33,9 @@
             <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
            
           </div>
+          @if(auth()->user()->role=='user')
+          <a href="{{route('new.cart.get')}}"><span class="badge badge-success" style="margin-left:20px; padding:10px">Cart({{session()->has('cart') ? count(session()->get('cart')):0}})</span></a>
+          @endif 
           @if(auth()->user()->role=='admin')
         </li>
         <li class="nav-item dropdown d-flex mr-4 ">
@@ -58,7 +63,8 @@
           <a class="dropdown-item preview-item">               
               <i class="icon-head"></i> Profile
           </a>
-          <a class="dropdown-item preview-item" href="{{route('employee.logout')}}">({{auth()->user()->role}}) |  Logout</a>
+          
+          <a class="dropdown-item preview-item" href="{{route('admin.logout')}}">({{auth()->user()->role}}) |  Logout</a>
 
         </div>
       </li>

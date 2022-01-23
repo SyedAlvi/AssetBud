@@ -23,37 +23,22 @@ use App\Http\Controllers\EmployeeUserController;
 */
 
 
-//user_login
 
-Route::get('/employee/login',[EmployeeUserController::class,'employeelogin'])->name('employee.login');
-Route::post('/employee/login-view',[EmployeeUserController::class,'employeeLoginView'])->name('employee.LoginView');
-
-
-//User_grouping
-
-// Route::post ('/employee/profile/{user_id}',[EmployeeUserController::class,'employee_profile'])->name('employee.profile');
-
-// Route:: get('/view/product/{product_id}',[ProductController::class,'font'])->name('product.view');
-Route::get('/view/carousel',[EmployeeUserController::class,'Carousel_product'])->name('Carousel.product');
-
-//user_logout
-Route::get('/logout',[EmployeeUserController::class,'logout'])->name('employee.logout');
-// cart route -----------------
-
-Route::get('/add-to-cart/{id}',[CartController::class,'addTocart'])->name('add.cart');
-Route::get('/view-cart',[CartController::class,'viewCart'])->name('view.cart');
-Route::get('/remove-cart/{rowId}',[CartController::class,'remove'])->name('remove.cart');
-
-
-
-//  });
 
 //admin_Login
-Route::get('/admin/login',[AdminUserController::class,'login'])->name('admin.login');
-Route::post('/admin/login-view',[AdminUserController::class,'LoginView'])->name('admin.LoginView');
+Route::get('login',[AdminUserController::class,'login'])->name('admin.login');
+Route::post('/admin/login',[AdminUserController::class,'LoginView'])->name('admin.LoginView');
+Route::get('/product/cart',[CartController::class,'product_cart'])->name('product.cart');
+
+// ------- add to cart----------------------
+Route::get('/add/cart/{id}',[CartController::class,'Cart'])->name('new.cart');
+Route::get('/get/cart/view',[CartController::class,'getCart'])->name('new.cart.get');
+Route::get('/clear/cart',[CartController::class,'clearCart'])->name('clear.cart');
+
+
 
 //admin_grouping
-Route::group(['prefix'=> 'admin','middleware'=>['auth','admin']], function(){
+Route::group(['prefix'=> 'admin','middleware'=>['auth']], function(){
 
     Route::get('/', function(){
         return view('master');
@@ -92,11 +77,15 @@ Route::post('/product/store', [ProductController:: class, 'ProductStore'])->name
 // Route::post('/product/search', [ProductController:: class, 'productSearch'])->name('product.search');
 
 // //for OrderController
-// Route::get('/create/order', [OrderController::class, 'CreateOrder'])->name('create.order');
+
+
 // //for OrderList
 Route::get('/order/list',[OrderController:: class,'OrderList'])->name('order.list');
-Route::post('/order/store', [OrderController:: class, 'OrderStore'])->name('order.store');
-Route::post('/status/{id}', [OrderController:: class, 'OrderStatus'])->name('order.status');
+// Route::post('/order/store', [OrderController:: class, 'OrderStore'])->name('order.store');
+// Route::post('/status/{id}', [OrderController:: class, 'OrderStatus'])->name('order.status');
+Route::get('/checkout',[OrderController::class,'checkout'])->name('cart.checkout');
+Route::get('order/cancel/{id}',[OrderController::class,'orderCancel'])->name('admin.order.cancel');
+// Route::get('order/approve/{id}',[OrderController::class,'orderApprove'])->name('admin.order.approve');
 
 
 //category
