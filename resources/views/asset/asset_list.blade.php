@@ -1,13 +1,13 @@
 @extends('master')
 @section('content')
 
-<h1>Product List</h1>
+<h1>Asset List</h1>
     @if(session()->has('success'))
         <p class="alert alert-success">
             {{session()->get('success')}}
         </p>
     @endif
-<form action="{{route('product.list')}}" method="GET">
+<form action="{{route('asset.list')}}" method="GET">
   <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
@@ -29,24 +29,24 @@
       <th> Price</th>
       <th> Details</th>
       
-      <th> Product_image</th>
+      <th> Asset_image</th>
     </tr>
   </thead>
   <tbody>
-    @foreach ($productlist as $product)
+    @foreach ($assetlist as $asset)
     <tr>
-      <th>{{ $product->id}}</th>
-      <th>{{ $product->name}}</th>
-      <th>{{$product->Cname}}</th>
-      <th>{{ $product->quantity}}</th>
-      <th>{{ $product->price}}</th>
-      <th>{{ $product->details}}</th>
-      <td><img src="{{url('/uploads/products/'. $product->image)}}" style="border-radius: 4px;" width= "100px;" alt="product image"> </td>
+      <th>{{ $asset->id}}</th>
+      <th>{{ $asset->name}}</th>
+      <th>{{$asset->Cname}}</th>
+      <th>{{ $asset->quantity}}</th>
+      <th>{{ $asset->price}}</th>
+      <th>{{ $asset->details}}</th>
+      <td><img src="{{url('/uploads/assets/'. $asset->image)}}" style="border-radius: 4px;" width= "100px;" alt="asset image"> </td>
       
       <td>
-        <a href="{{route('view.product',  $product->id)}}"class="btn btn-info">View</a>
-        <a href="{{route('product.edit', $product->id)}}"class="btn btn-success">Update</a>
-        <a href="{{route('delete.product',  $product->id)}}"class="btn btn-danger">Delete</a> 
+        <a href="{{route('view.asset',  $asset->id)}}"class="btn btn-info">View</a>
+        <a href="{{route('asset.edit', $asset->id)}}"class="btn btn-success">Update</a>
+        <a href="{{route('delete.asset',  $asset->id)}}"class="btn btn-danger">Delete</a> 
         </td>
     </tr>
     @endforeach

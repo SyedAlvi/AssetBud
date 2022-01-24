@@ -14,9 +14,9 @@
     <ul class="nav">
       @if(auth()->user()->role=='user')
       <li class="nav-item">
-        <a class="nav-link" href="{{route('product.cart')}}">
+        <a class="nav-link" href="{{route('asset.cart')}}">
           <i class="icon-file menu-icon"></i>
-          <span class="menu-title">Product List</span>
+          <span class="menu-title">Asset List</span>
         </a>
       </li>
       @endif
@@ -25,7 +25,7 @@
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="icon-head menu-icon"></i>
-          <span class="menu-title">Admin</span>
+          <span class="menu-title">Employee</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-basic">
@@ -41,14 +41,14 @@
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="icon-head menu-icon"></i>
-          <span class="menu-title">Product</span>
+          <span class="menu-title">Asset</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
                  
       
-            <li class="nav-item"> <a class="nav-link" href="{{route('manage.product')}}">Manage Product</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('manage.asset')}}">Manage Asset</a></li>
     
           </ul>
         </div>
@@ -58,14 +58,14 @@
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="icon-head menu-icon"></i>
-          <span class="menu-title">Order</span>
+          <span class="menu-title">Request</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
                  
      
-            <li class="nav-item"> <a class="nav-link" href="{{route('order.list')}}">Manage Order</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('request.list')}}">Manage Request</a></li>
         
            
           </ul>
@@ -74,29 +74,18 @@
       @endif
      
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('transfer.list')}}">
           <i class="icon-file menu-icon"></i>
-          <span class="menu-title">Transfer History</span>
+          <span class="menu-title">Asset Transfer History</span>
         </a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href="pages/charts/chartjs.html">
           <i class="icon-pie-graph menu-icon"></i>
           <span class="menu-title">Feedback</span>
         </a>
-      {{-- </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pages/tables/basic-table.html">
-          <i class="icon-command menu-icon"></i>
-          <span class="menu-title">Tables</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pages/icons/feather-icons.html">
-          <i class="icon-help menu-icon"></i>
-          <span class="menu-title">Icons</span>
-        </a>
-      </li> --}}
+ 
       <li class="nav-item">
     
     </ul>

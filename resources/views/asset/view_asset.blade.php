@@ -1,13 +1,13 @@
 @extends('master')
 @section('content')
 
-<h1>Product List</h1>
+<h1>Asset List</h1>
     @if(session()->has('success'))
         <p class="alert alert-success">
             {{session()->get('success')}}
         </p>
     @endif
-<form action="{{route('product.list')}}" method="GET">
+<form action="{{route('asset.list')}}" method="GET">
   <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
@@ -27,20 +27,20 @@
       <th> Category</th>
       <th> Quantity</th>
       <th> Details</th>
-      <th> Product_image</th>
+      <th> Asset_image</th>
     </tr>
   </thead>
   <tbody>
-    @foreach ($productlist as $item)
+    @foreach ($assetlist as $item)
     <tr>
       <th>{{$item->id}}</th>
       <th>{{$item->name}}</th>
       <th>{{$item->Cname}}</th>
       <th>{{$item->quantity}}</th>
       <th>{{$item->details}}</th>
-      <td><img src="{{url('/uploads/products/'.$item->image)}}" style="border-radius: 4px;" width= "100px;" alt="product image"> </td>
+      <td><img src="{{url('/uploads/assets/'.$item->image)}}" style="border-radius: 4px;" width= "100px;" alt="asset image"> </td>
       <td>
-        <a href="{{route('view.product', $item->id)}}"class="btn btn-info">View</a>
+        <a href="{{route('view.asset', $item->id)}}"class="btn btn-info">View</a>
        
         </td>
     </tr>

@@ -1,12 +1,12 @@
 @extends('master')
 @section('content')
-<h1>Order List</h1>
+<h1>Request List</h1>
 @if(session()->has('success'))
 <p class="alert alert-success">
     {{session()->get('success')}}
 </p>
 @endif
-<form action="{{route('order.list')}}" method="GET">
+<form action="{{route('request.list')}}" method="GET">
 <div class="row">
 <div class="col-md-4"></div>
 <div class="col-md-4">
@@ -26,6 +26,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col">ID</th>
         <th scope="col">User Name</th>
         <th scope="col">Total Price</th>
         <th scope="col">Status</th>
@@ -33,22 +34,24 @@
       </tr>
     </thead>
     <tbody>
-      @foreach($orders as $key=>$order)
+      @foreach($requests as $key=>$request)
       <tr>
         <th scope="row">{{$key+1}}</th>
-        <td>{{$order->user->name}}</td>
-        <td>{{$order->total_price}} .BDT</td>
+        <td>{{$request->user->name}}</td>
+        <td>{{$request->total_price}} BDT</td>
         <td>
 
-                {{$order->status}}
+                {{$request->status}}
 
         </td>
         <td>
-          {{-- <a href="{{route('admin.order.approve')}}" class="btn btn-primary">Approve</a> --}}
-            @if($order->status!='cancel')
-            <a href="{{route('admin.order.cancel',$order->id)}}" class="btn btn-danger">Cancel</a>
+         
+            @if($request->status!='cancel')
+            <a href="{{route('admin.request.cancel',$request->id)}}" class="btn btn-danger">Cancel</a>
             @endif
-            
+            @if($request->status=='pending')
+            <a href="{{route('admin.request.approve',$request->id)}}" class="btn btn-success">Approve</a>
+            @endif
                
         </td>
       </tr>

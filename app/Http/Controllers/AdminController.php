@@ -11,13 +11,13 @@ class AdminController extends Controller
     {
         return view('admin.pages.manage_employee');
     }
-    public function ManageProduct()
+    public function ManageAsset()
     {
-        return view('admin.pages.manage_product');
+        return view('admin.pages.manage_asset');
     }
-    public function ManageOrder()
+    public function ManageRequest()
     {
-        return view('admin.pages.manage_order');
+        return view('admin.pages.manage_request');
     }
 }
 

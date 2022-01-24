@@ -26,19 +26,19 @@
 </div>
 @endif
 
-    <form action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('asset.store')}}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class= "form-group">
-        <label for="exampleFormControlInput1">Product Code</label>
-        <input type="number" name="id" class="form-control" id="exampleFormControlInput1" placeholder="Product Code">
+        <label for="exampleFormControlInput1">Asset Code</label>
+        <input type="number" name="id" class="form-control" id="exampleFormControlInput1" placeholder="asset Code">
       </div>
         <div class="form-group">
-          <label for="exampleFormControlInput1">Product Name</label>
-          <input type="name" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Product Name">
+          <label for="exampleFormControlInput1">asset Name</label>
+          <input type="name" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter asset Name">
         </div>
         
         <div class="form-group">
-          <label for="exampleFormControlSelect1">Product Category</label>
+          <label for="exampleFormControlSelect1">asset Category</label>
           <select name="Cname" class="form-control" id="exampleFormControlSelect1">
             @foreach ($categories as $category)
             <option value="{{$category->Cname}}">{{$category->Cname}}</option>
@@ -46,22 +46,22 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="exampleFormControlInput1">Product Quantity</label>
-          <input type="number" name="quantity" class="form-control" id="exampleFormControlInput1" placeholder="Product quantity">
+          <label for="exampleFormControlInput1">asset Quantity</label>
+          <input type="number" name="quantity" class="form-control" id="exampleFormControlInput1" placeholder="asset quantity">
         </div>
         <div class="form-group">
-          <label for="exampleFormControlInput1"> Product price</label>
-          <input type="number" name="price" class="form-control" id="exampleFormControlInput1" placeholder="Product price">
+          <label for="exampleFormControlInput1"> asset price</label>
+          <input type="number" name="price" class="form-control" id="exampleFormControlInput1" placeholder="asset price">
         </div>
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">Product Details</label>
+          <label for="exampleFormControlTextarea1">asset Details</label>
           <textarea name="details" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Product Image</label>
-          <input name="product_image" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <label for="exampleInputEmail1" class="form-label">asset Image</label>
+          <input name="asset_image" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
       </div>
-        <button type="submit" class="btn btn-primary">Create New Product</button>
+        <button type="submit" class="btn btn-primary">Create New asset</button>
       </form>
     </html>
 @endsection

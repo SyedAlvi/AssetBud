@@ -11,11 +11,11 @@ class CategoryController extends Controller
     public function categoryList(){
         $categories=Category::all();
     //    dd($categories);
-        return view('product.category_list',compact('categories'));
+        return view('asset.category_list',compact('categories'));
         }
-    public function product_category()
+    public function asset_category()
     {
-        return view('product.product_category');
+        return view('asset.asset_category');
     }
     public function category_create(Request $request)
     {
