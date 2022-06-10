@@ -59,7 +59,7 @@ Route::get('/create/employee', [EmployeeController::class, 'CreateEmployee'])->n
 Route::get('employee/delete/{employee_id}', [EmployeeController::class, 'deleteemployee'])->name('delete.employee');
 Route::get('employee/view/{employee_id}', [EmployeeController::class, 'viewemployee'])->name('view.employee');
 Route::post('employee/update/{user_id}', [EmployeeController::class, 'employee_update'])->name('employee.update');
-Route::match(['get','post'],'/employee/update/{user_id}',[EmployeeController::class,'employee_edit'])->name('employee.edit');
+Route::post('/employee/update/{user_id}',[EmployeeController::class,'employee_edit'])->name('employee.edit');
 
 
 // //for EmployeeList
@@ -71,7 +71,7 @@ Route::get('/create/asset', [AssetController::class, 'Createasset'])->name('crea
 Route::get('asset/delete/{asset_id}', [AssetController::class, 'deleteasset'])->name('delete.asset');
 Route::get('asset/view/{asset_id}', [AssetController::class, 'viewasset'])->name('view.asset');
 Route::post('asset/update/{asset_id}', [AssetController::class, 'asset_update'])->name('asset.update');
-Route::match(['get','post'],'update/{asset_id}',[AssetController::class,'asset_edit'])->name('asset.edit');
+Route::post('update/{asset_id}',[AssetController::class,'asset_edit'])->name('asset.edit');
 Route:: get('/view/asset',[AssetController::class,'User_view_asset'])->name('asset.view');
 // // for AssetList
 Route::get('/asset/list',[AssetController:: class,'Search_AssetList'])->name('asset.list');

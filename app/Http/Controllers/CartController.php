@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RequestAsset;
 use App\Models\Asset;
+
+use App\Models\RequestAsset;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -12,8 +13,8 @@ class CartController extends Controller
 {
     public function asset_cart()
     {
-        $assetlist = asset::with('Category')->get();
-        return view ('request.assetlist', compact('assetlist'));
+        $assetlist = Asset::with('Category')->get();
+        return view ('Request.assetlist', compact('assetlist'));
        
     }
 
