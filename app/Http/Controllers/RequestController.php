@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\RequestAsset;
-use App\Models\RequestDetails;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\RequestController;
+use App\Models\RequestDetails;
 
 class RequestController extends Controller
 {
-    
     public function checkout()
     {
         // insert order data into order table- user_id, total
@@ -78,8 +75,6 @@ class RequestController extends Controller
         }
         
       
-        return view('request.transferhistory',compact('requests'));
+        return view('Request.transferhistory',compact('requests'));
     }
-
-
 }
