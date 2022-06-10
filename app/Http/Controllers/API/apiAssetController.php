@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Models\Asset;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class apiAssetController extends Controller
 {
@@ -22,7 +23,18 @@ class apiAssetController extends Controller
 
     public function AssetStore(Request $request){
         
-        //  dd($request->all());
+        $val=Validator::make($request->all(),[
+            'name'=>'required',
+            'Cname'=>'required',
+            'quantity'=>'required',
+            'price'=>'required',
+            'details'=>'required',
+        ]);
+
+        if($val->fails())
+        {
+            return $this->responseWithError($val->getMessageBag());
+        }
         
        $asset=Asset::create([
             //'id'=>$request->id,
@@ -34,12 +46,7 @@ class apiAssetController extends Controller
            
            
         ]);
-        return response()->json([
-            'success'=>true,
-            'data'=>$asset,
-            'message'=>'success',
-            'status'=>200,
-        ]);
+        return $this->responseWithSuccess($asset,'Asset created.');
         
     }
 }
